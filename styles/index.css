@@ -1,43 +1,30 @@
 /** Nicovera, Gabyesca **/
+
 aside {
     display: block;
     box-sizing: border-box;
     width: 800px;
     min-height: 200px;
     /* float: right; */
-    margin-bottom: 5px;
-    margin-top: 400px;
-    margin-right: 5px;
-    width: 20%;
-    border: solid #0843e6ad;
     border-radius: 25px;
 }
 
-h3 {
-    text-align: center;
-    text-decoration: underline;
-    color:#0843e6ad;
-   ;
-}
-
-h4 {
+.titulosrecent {
+    padding-left: 2rem;
     font-family: 'roboto',sans-serif;
-    text-align: center;
-    color: #0843e6ad;
+    margin-bottom: 2rem;
 }
 
 ul li {
-    
+    margin-bottom: 1rem;
     top:200px;
     padding-right: 0;
     list-style: none;
     color: black;
 }
 
-ul container {
+ul span {
     color: #0843e6ad;
-
-    
 }
 
 /** Dgamez **/
@@ -55,7 +42,7 @@ main {
 }
  */
 .contenedor{
-    width: 80rem;
+    width: 100vw;
     height: 120rem;
     background:  rgb(252, 252, 252);
     margin: auto;
@@ -72,7 +59,7 @@ main {
 .cuentas {
     height: 40rem;
     width: 62%;
-    background: rgb(252, 252, 252);
+    background: white;
     float: left;
 
 }
@@ -81,17 +68,18 @@ main {
     height: 8%;
     background: rgb(142, 146, 149);
     margin-bottom: 1.8em;
-
-}
-.otherop {
-    height: 40rem;
-    width: 29rem;
-    background: rgb(150, 148, 148);
-    border-radius: 1em;
-    float: right;
 }
 
 .perfilgraf {
+    height: 40rem;
+    width: 29rem;
+    /* background: rgb(150, 148, 148); */
+    border-radius: 1em;
+    padding-top: 25px;
+    float: right;
+}
+
+.otherop {
     height: 40rem;
     width: 62%;
     background: rgb(158, 141, 141);
@@ -179,14 +167,13 @@ main {
     margin-top: 10px;
     font-weight: 100;
     margin-left: 1rem;
-    color: rgb(8, 8, 142);
 }
 
 .cuentas h1{
     margin-top: 40px;
     font-weight: 100;
     margin-left: 1.3rem;
-    color: rgb(51, 51, 194);
+
 }
 
 .content-img {
@@ -236,4 +223,11 @@ main {
 
 .bloque-cuenta {
     border-left: 5px solid white;
+}
+
+@media screen and (max-width: 1240px) {
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+    }
 }

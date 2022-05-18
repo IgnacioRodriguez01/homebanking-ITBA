@@ -7,7 +7,9 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/index.css">
     <title>ITBANK</title>
 </head>
@@ -72,11 +74,11 @@
                                 <article class="articulo3"><h3>$2.437.29</h3></article>
                             </article>
                             <article class="articulo"> 
-                                <article class="articulo2"><h2>Cuenta Actual</h2> <p>XXXX XXXX XXXX XXXX</p></article>
+                                <article class="articulo2"><h2>Cuenta 2</h2> <p>XXXX XXXX XXXX XXXX</p></article>
                                 <article class="articulo3"><h3>$4.832,36</h3></article>
                             </article>
                             <article class="articulo"> 
-                                <article class="articulo2"><h2>Cuenta Actual</h2> <p>XXXX XXXX XXXX XXXX</p></article>
+                                <article class="articulo2"><h2>Cuenta 3</h2> <p>XXXX XXXX XXXX XXXX</p></article>
                                 <article class="articulo3"><h3>$1.329,89</h3></article>
                             </article>
                             <div class="pin"> <h2>Tarjetas de credito asociadas a tu cuenta</h2>
@@ -85,20 +87,55 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="otherop"> //OTHER OPERATIONS//</div>
-                        <div class="perfilgraf">//PERFIL Y GRAFICA//</div> 
+                        <div class="perfilgraf">
+
+                          <!-- Cervellini Perfil+Graf -->
+
+                          <section class="perfil">
+                            <div class="cuadrado">
+                                <div class="contenedor-img">
+                                    <img src="https://www.saramusico.com/wp-content/uploads/2016/11/book-profesional-fotos-profesionales0025.jpg" alt="">
+                                </div>
+                                <label class="label-1"><b>Jane Doe</b></label>
+                                <label class="label-2">San Francisco - USA</label>
+                                <a href="">User settings</a>
+                            </div>
+
+                            <div class="contenedor-cuadrado-23">
+                                <div class="cuadrado-2">
+                                    <label class="label-1"><b>56</b></label>
+                                    <label class="label-2">Operations</label>
+                                </div>
+
+                                <div class="cuadrado-3">
+                                    <label class="label-1"><b>+$5,000.10</b></label>
+                                    <label class="label-2">Amofff</label>
+                                </div>
+                            </div>
+                            <div class="cuadrado-4">
+                                <label><b>Expenses report</b></label>
+                                <div>
+                                    <canvas id="myChart" width="200px" height="100px"></canvas>
+                                </div>
+                            </div>
+                        </section>
+                        </div>
+
+                        <div class="otherop">//PERFIL Y GRAFICA//</div> 
 
                         <!-- Nicovera Act Reciente-->
+
                         <aside class="recentact"> 
-                              
+                        <div class="titulosrecent">
                           <h3> Actividad Reciente </h3>
+                          <h4> Marzo </h4>
+                        </div>
                           <div>
-                            <h4 > Marzo </h4>
                               <ul>
-                                <li> Marzo 20 <br> <container> Transferencia Saliente $5.000</container></li>
-                                <li> Marzo 18 <br>  <container> Depósito $9.000 </container> </li>
-                                <li> Marzo 10 <br> <container> Servicios $2.500 </container></li>
-                                <li> Marzo 03 <br> <container>Transferencia Entrante $70.000</container></li>
+                                <li> Marzo 20 <br> <span> Transferencia Saliente $5.000</span><hr></li>
+                                <li> Marzo 18 <br>  <span> Depósito $9.000 </span><hr></li>
+                                <li> Marzo 10 <br> <span> Servicios $2.500 </span><hr></li>
+                                <li> Marzo 03 <br> <span>Transferencia Entrante $70.000</span><hr></li>
                               </ul>
                         </aside> 
                     </div>  <!-- contenido --> 
@@ -139,5 +176,41 @@
   
   </footer>
 
+  <!-- Cervellini Perfil+Graf (Scripts)-->
+
+  <script>
+        const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Month',
+      backgroundColor: 'rgb(43, 200, 255)',
+      borderColor: 'rgb(43, 200, 255)',
+      data: [0, 20, 5, 80, 20, 50, 10,],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+  </script>
+
+  <script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
+      
 </body>
 </html>
