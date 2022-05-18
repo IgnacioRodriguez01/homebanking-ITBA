@@ -7,42 +7,37 @@
 }
 
 main { 
-    background: rgb(132, 151, 192);
+    background: rgb(223, 229, 253);
 }
 .contenedor{
     width: 80rem;
     height: 120rem;
-    background: rgb(242, 254, 254);
+    background:  rgb(252, 252, 252);
     margin: auto;
 
 }
 
+.contenido {
+    height: 75%;
+    background: rgb(252, 252, 252);
+    margin: 1em;
+}
+
+
+.cuentas {
+    height: 40rem;
+    width: 62%;
+    background: rgb(252, 252, 252);
+    float: left;
+
+}
+/*Rellenar*/
 .header {
     height: 8%;
     background: rgb(142, 146, 149);
     margin-bottom: 1.8em;
 
 }
-
-.contenido {
-    height: 75%;
-    background: rgb(242, 254, 254);
-    margin: 1em;
-}
-
-.footer {
-    height: 20%;
-    background: gray;
-}
-
-.cuentas {
-    height: 40rem;
-    width: 62%;
-    background: rgba(110, 84, 84, 0.325);
-    float: left;
-
-}
-
 .otherop {
     height: 40rem;
     width: 29rem;
@@ -68,25 +63,62 @@ main {
     margin-top: 1rem;
 }
 
+.footer {
+    height: 20%;
+    background: gray;
+}
+
+/*...*/
+
 .articulo {
+    display: flex;
     width: 95%;
     height: 22%;
-    background: blanchedalmond;
+    background: linear-gradient(rgb(14, 26, 197), rgb(39, 118, 255));
     margin: 1rem;
     border-radius: .5em;
+    overflow: hidden;
+}
+
+
+.articulo2 {
+    width: 50%;
+    height: 40rem;
+    background: rgb(255, 255, 255);
+    float: left;
+}
+
+.articulo3 {
+    height: 40rem;
+    background: rgb(255, 255, 255);
+    float: right;
+    width: 25%;
+    margin-right: 25%;
+    border: 2px solid rgb(255, 255, 255);
+    
+}
+
+.articulo3 h3 {
+    font-size: 30px;
+    font-weight: 100;
+    color:  rgb(8, 8, 142);
+    padding-top: 3.2rem;
+    text-align: center;
 }
 
 .articulo h2 {
     font-weight: 100;
-    color: rgb(38, 163, 241);
+    color: rgb(11, 141, 255);
     padding-top: 2rem;
     padding-left: 2rem
     
 }
 
+
 .articulo p {
     font-size: 1.2rem;
     margin-left: 4%;
+    color:  rgb(8, 8, 142);
     
 }
 
@@ -94,7 +126,7 @@ main {
     width: 40rem;
     height: 10%;
     margin: 1em;
-    background: wheat;
+    background:  rgb(255, 255, 255);
     border-radius: 0.5em;
 }
 
@@ -102,6 +134,7 @@ main {
     margin-top: 10px;
     font-weight: 100;
     margin-left: 1rem;
+    color: rgb(8, 8, 142);
 }
 
 .cuentas h1{
