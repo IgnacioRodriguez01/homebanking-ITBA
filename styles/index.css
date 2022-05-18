@@ -204,3 +204,36 @@ main {
     margin-right: 10px;
 }
 
+/** Vickyd **/
+
+.logo {
+    max-width: 150px;
+}
+
+#navbarText ul{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.welcome-back .container {
+    background: linear-gradient(90deg, rgba(2,86,138,1) 0%, rgba(111,157,185,1) 100%);
+    color: white;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+  
+.align-items-center {
+    height: 10rem;
+    margin: 0;
+    width: 100%;
+}
+
+.cant-dinero {
+    font-size: 1.5rem;
+}
+
+.bloque-cuenta {
+    border-left: 5px solid white;
+}
