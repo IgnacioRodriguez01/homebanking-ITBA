@@ -1,0 +1,40 @@
+aside {
+    display: block;
+    box-sizing: border-box;
+    width: 800px;
+    min-height: 200px;
+    float: right;
+    margin-bottom: 5px;
+    margin-top: 400px;
+    margin-right: 5px;
+    width: 20%;
+    border: solid #0843e6ad;
+    border-radius: 25px;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+    color:#0843e6ad;
+   ;
+}
+
+h4 {
+    font-family: 'roboto',sans-serif;
+    text-align: center;
+    color: #0843e6ad;
+}
+
+ul li {
+    
+    top:200px;
+    padding-right: 0;
+    list-style: none;
+    color: black;
+}
+
+ul container {
+    color: #0843e6ad;
+
+    
+}
