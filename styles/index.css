@@ -1,34 +1,3 @@
-/** Nicovera, Gabyesca **/
-
-aside {
-    display: block;
-    box-sizing: border-box;
-    width: 800px;
-    min-height: 200px;
-    /* float: right; */
-    border-radius: 25px;
-}
-
-.titulosrecent {
-    padding-left: 2rem;
-    font-family: 'roboto',sans-serif;
-    margin-bottom: 2rem;
-}
-
-ul li {
-    margin-bottom: 1rem;
-    top:200px;
-    padding-right: 0;
-    list-style: none;
-    color: black;
-}
-
-ul span {
-    color: #0843e6ad;
-}
-
-/** Dgamez **/
-
 * {
     margin: 0px;
     padding: 0px;
@@ -36,159 +5,67 @@ ul span {
     font-family: sans-serif;
 
 }
-/* 
-main { 
-    background: rgb(223, 229, 253);
-}
- */
-.contenedor{
-    width: 100vw;
-    height: 120rem;
-    background:  rgb(252, 252, 252);
-    margin: auto;
 
+body {
+    height: 100vh;
 }
 
-.contenido {
-    height: 75%;
-    background: rgb(252, 252, 252);
-    margin: 1em;
+/** Nicovera, Gabyesca **/
+
+/** Dgamez **/
+
+/** Ignacior **/
+
+main {
+    display: grid;
+    grid-template-columns: 65% 35%;
 }
 
+.cuentas, .perfilgraf, .otrasop, .reciente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
 
 .cuentas {
-    height: 40rem;
-    width: 62%;
-    background: white;
-    float: left;
-
-}
-/*Rellenar*/
-.header {
-    height: 8%;
-    background: rgb(142, 146, 149);
-    margin-bottom: 1.8em;
+    border: 10px solid blue;
 }
 
 .perfilgraf {
-    height: 40rem;
-    width: 29rem;
-    /* background: rgb(150, 148, 148); */
-    border-radius: 1em;
-    padding-top: 25px;
-    float: right;
+    border: 10px solid lime;
 }
 
-.otherop {
-    height: 40rem;
-    width: 62%;
-    background: rgb(158, 141, 141);
-    float: left;
-    margin-top: 1rem;
+.otrasop {
+    border: 10px solid black;
 }
 
-.recentact {
-    height: 40rem;
-    width: 29rem;
-    /* background: rgb(150, 148, 148); */
-    border-radius: 1em;
-    float: right;
-    margin-top: 1rem;
+.reciente {
+    border: 10px solid lightskyblue;
 }
 
-.footer {
-    height: 20%;
-    background: gray;
-}
+@media screen and (max-width: 1000px) {
 
-/*...*/
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
-.articulo {
-    display: flex;
-    width: 95%;
-    height: 22%;
-    background: linear-gradient(rgb(14, 26, 197), rgb(39, 118, 255));
-    margin: 1rem;
-    border-radius: .5em;
-    overflow: hidden;
-}
-
-
-.articulo2 {
-    width: 50%;
-    height: 40rem;
-    background: rgb(255, 255, 255);
-    float: left;
-}
-
-.articulo3 {
-    height: 40rem;
-    background: rgb(255, 255, 255);
-    float: right;
-    width: 25%;
-    margin-right: 25%;
-    border: 2px solid rgb(255, 255, 255);
+    .cuentas {
+        order: 2;
+    }
     
-}
-
-.articulo3 h3 {
-    font-size: 30px;
-    font-weight: 100;
-    color:  rgb(8, 8, 142);
-    padding-top: 3.2rem;
-    text-align: center;
-}
-
-.articulo h2 {
-    font-weight: 100;
-    color: rgb(11, 141, 255);
-    padding-top: 2rem;
-    padding-left: 2rem
+    .perfilgraf {
+        order: 1;
+    }
     
-}
-
-
-.articulo p {
-    font-size: 1.2rem;
-    margin-left: 4%;
-    color:  rgb(8, 8, 142);
+    .otrasop {
+        order: 4;
+    }
     
-}
-
-.pin {
-    width: 40rem;
-    height: 10%;
-    margin: 1em;
-    background:  rgb(255, 255, 255);
-    border-radius: 0.5em;
-}
-
-.pin h2 {
-    margin-top: 10px;
-    font-weight: 100;
-    margin-left: 1rem;
-}
-
-.cuentas h1{
-    margin-top: 40px;
-    font-weight: 100;
-    margin-left: 1.3rem;
-
-}
-
-.content-img {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    object-fit: cover;
-    justify-content: center;
-    align-items: center;
-}
-.content-img img{
-    width: 100%;
-    height: 100%;
-    margin: 75rem;
-    margin-right: 10px;
+    .reciente {
+        order: 3;
+    }
 }
 
 /** Vickyd **/
@@ -223,11 +100,4 @@ main {
 
 .bloque-cuenta {
     border-left: 5px solid white;
-}
-
-@media screen and (max-width: 1240px) {
-    .contenedor {
-        display: flex;
-        flex-direction: column;
-    }
 }
