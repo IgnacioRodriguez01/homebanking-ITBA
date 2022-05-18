@@ -1,0 +1,11 @@
+.opciones {
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    color: blue;
+}
+
+.otras{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
