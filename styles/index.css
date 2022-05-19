@@ -80,9 +80,10 @@ main {
 }
 
 .otherop {
+    padding-top: 5rem;
     height: 40rem;
     width: 62%;
-    background: rgb(158, 141, 141);
+    /* background: rgb(158, 141, 141); */
     float: left;
     margin-top: 1rem;
 }
