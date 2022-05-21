@@ -7,14 +7,16 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/homebanking.css">
-    <link rel="stylesheet" href="styles/otras.css">
-    <title>ITBANK</title>
+    
+    <title>ITBANK - Homebanking</title>
 </head>
 <body>
+
     <!-- Vickyd Header -->
     <section class="navbar-section">
       <nav class="navbar navbar-expand-lg bg-light">
@@ -62,129 +64,142 @@
       </div>
     </div>
     </section>
-<!-- Dgamez Layout -->
     <main>
-            <div class="contenedor">
-              
-                    <div class="contenido">
-                        <div class="cuentas"><h1>Tus Cuentas </h1>
-                       
-                            <article class="articulo"> 
 
-                                <article class="articulo2"><h2>Cuenta Actual</h2> <p>XXXX XXXX XXXX XXXX</p></article>
-                                <article class="articulo3"><h3>$2.437.29</h3></article>
-                            </article>
-                            <article class="articulo"> 
-                                <article class="articulo2"><h2>Cuenta 2</h2> <p>XXXX XXXX XXXX XXXX</p></article>
-                                <article class="articulo3"><h3>$4.832,36</h3></article>
-                            </article>
-                            <article class="articulo"> 
-                                <article class="articulo2"><h2>Cuenta 3</h2> <p>XXXX XXXX XXXX XXXX</p></article>
-                                <article class="articulo3"><h3>$1.329,89</h3></article>
-                            </article>
-                            <div class="pin"> <h2>Tarjetas de credito asociadas a tu cuenta</h2>
-                            <div class="content-img">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1159/1159628.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="perfilgraf">
+        <!-- Dgamez Cuentas -->
+        <div class="cuentas">
+          <h2>Tus Cuentas </h2>
+                   
+          <article class="articulo"> 
 
-                          <!-- Cervellini Perfil+Graf -->
+              <article class="articulo2"><h2>Cuenta 1</h2> <p>XXXX XXXX XXXX XXXX</p></article>
+              <article class="articulo3"><h3>$2.437.29</h3></article>
+          </article>
+          <article class="articulo"> 
+              <article class="articulo2"><h2>Cuenta 2</h2> <p>XXXX XXXX XXXX XXXX</p></article>
+              <article class="articulo3"><h3>$4.832,36</h3></article>
+          </article>
+          <article class="articulo"> 
+              <article class="articulo2"><h2>Cuenta 3</h2> <p>XXXX XXXX XXXX XXXX</p></article>
+              <article class="articulo3"><h3>$1.329,89</h3></article>
+          </article>
+          <!-- <div class="pin">
+            <h2>Tarjetas de credito asociadas a tu cuenta</h2>
+            <div class="content-img">
+              <img src="https://cdn-icons-png.flaticon.com/512/1159/1159628.png" alt="">
+            </div>
+          </div> -->
+        </div>
 
-                          <section class="perfil">
-                            <div class="cuadrado">
-                                <div class="contenedor-img">
-                                    <img src="https://www.saramusico.com/wp-content/uploads/2016/11/book-profesional-fotos-profesionales0025.jpg" alt="">
-                                </div>
-                                <label class="label-1"><b>Jane Doe</b></label>
-                                <label class="label-2">San Francisco - USA</label>
-                                <a href="">User settings</a>
-                            </div>
+        <!-- Cervellini Perfil+Graf -->
+        <div class="perfilgraf">
+          <section class="perfil">
 
-                            <div class="contenedor-cuadrado-23">
-                                <div class="cuadrado-2">
-                                    <label class="label-1"><b>56</b></label>
-                                    <label class="label-2">Operations</label>
-                                </div>
+            <div class="cuadrado">
+                <div class="contenedor-img">
+                    <img src="https://www.saramusico.com/wp-content/uploads/2016/11/book-profesional-fotos-profesionales0025.jpg" alt="">
+                </div>
+                <label class="label-1"><b>Jane Doe</b></label>
+                <label class="label-2">San Francisco - USA</label>
+                <a href="">User settings</a>
+            </div>
 
-                                <div class="cuadrado-3">
-                                    <label class="label-1"><b>+$5,000.10</b></label>
-                                    <label class="label-2">Amofff</label>
-                                </div>
-                            </div>
-                            <div class="cuadrado-4">
-                                <label><b>Expenses report</b></label>
-                                <div>
-                                    <canvas id="myChart" width="200px" height="100px"></canvas>
-                                </div>
-                            </div>
-                        </section>
-                        </div>
+            <div class="contenedor-cuadrado-23">
+                <div class="cuadrado-2">
+                    <label class="label-1"><b>56</b></label>
+                    <label class="label-2">Operations</label>
+                </div>
 
-                          <!-- Ramiro otherop-->
-                        <div class="otherop">
-                          <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  Botón de arrepentimiento
-                                </button>
-                              </h2>
-                              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the first item's accordion body.</strong>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Transferir
-                                </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the second item's accordion body.</strong>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                 Historial
-                                </button>
-                              </h2>
-                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the third item's accordion body.</strong>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div> 
+                <div class="cuadrado-3">
+                    <label class="label-1"><b>+$5,000.10</b></label>
+                    <label class="label-2">Amofff</label>
+                </div>
+            </div>
 
-                        <!-- Nicovera Act Reciente-->
+            <div class="cuadrado-4">
+                <label><b>Expenses report</b></label>
+                <div>
+                    <canvas id="myChart" width="200px" height="100px"></canvas>
+                </div>
+            </div>
+        </section>
+        </div>
 
-                        <aside class="recentact"> 
-                        <div class="titulosrecent">
-                          <h3> Actividad Reciente </h3>
-                          <h4> Marzo </h4>
-                        </div>
-                          <div>
-                              <ul>
-                                <li> Marzo 20 <br> <span> Transferencia Saliente $5.000</span><hr></li>
-                                <li> Marzo 18 <br>  <span> Depósito $9.000 </span><hr></li>
-                                <li> Marzo 10 <br> <span> Servicios $2.500 </span><hr></li>
-                                <li> Marzo 03 <br> <span>Transferencia Entrante $70.000</span><hr></li>
-                              </ul>
-                        </aside> 
-                    </div>  <!-- contenido --> 
-                <!-- <div class="footer">//FOOTER//</div>  -->
-            </div> <!-- contenedor -->             
+        <!-- Ramiro Otras Opciones-->
+        <div class="otrasop">
+          <h2>Otras Operaciones</h2>
+
+          <div class="accordion" id="accordionOtrasOp">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Mis Depósitos
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionOtrasOp">
+                <div class="accordion-body">
+                  <strong>No hay dépositos.</strong> <a href="#"> Realiza uno</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Transferir
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionOtrasOp">
+                <div class="accordion-body">
+                  <a href="#">Transferir a CBU/CVU</a>
+                  <a href="#">Transferir por otro medio</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                 Préstamos
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionOtrasOp">
+                <div class="accordion-body">
+                  <a href="#">Pedir un préstamo</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Retiros
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionOtrasOp">
+                <div class="accordion-body">
+                  <strong>No hay retiros.</strong> <a href="#"> Realiza uno</a>                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nicovera Actividad Reciente-->
+        <div class="reciente">
+          <div class="titulosrecent">
+            <h3> Actividad Reciente </h3>
+            <h4> Marzo </h4>
+          </div>
+          <ul>
+            <li> Marzo 20 <br> <span> Transferencia Saliente $5.000</span><hr></li>
+            <li> Marzo 18 <br>  <span> Depósito $9.000 </span><hr></li>
+            <li> Marzo 10 <br> <span> Servicios $2.500 </span><hr></li>
+            <li> Marzo 03 <br> <span>Transferencia Entrante $70.000</span><hr></li>
+          </ul>
+        </div>
+       
     </main>
-    <!-- Gabyesca Footer -->
-  <footer class="bg-light text-center ">
+
+  <!-- Gabyesca Footer -->
+  <footer class="bg-light text-center">
     <div class="container p-4">
         <div class="row">
           
@@ -210,9 +225,9 @@
         </div>
     </div>
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: #0843e6ad">
+    <div class="text-center p-3" style="background: linear-gradient(90deg, rgba(2,86,138,1) 0%, rgba(111,157,185,1) 100%); color: white">
       © 2022 Copyright: ITBANK
-      <a class="text-dark" href="https://mdbootstrap.com/"> itbank.com</a>
+      <a href="#" style="color: lightblue"> itbank.com</a>
     </div>
   
   </footer>
