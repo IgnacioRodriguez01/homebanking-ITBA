@@ -1,0 +1,103 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+body {
+    height: 100vh;
+}
+
+/** Nicovera, Gabyesca **/
+
+/** Dgamez **/
+
+/** Ignacior **/
+
+main {
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.cuentas, .perfilgraf, .otrasop, .reciente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.cuentas {
+    border: 10px solid blue;
+}
+
+.perfilgraf {
+    border: 10px solid lime;
+}
+
+.otrasop {
+    border: 10px solid black;
+}
+
+.reciente {
+    border: 10px solid lightskyblue;
+}
+
+@media screen and (max-width: 1000px) {
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cuentas {
+        order: 2;
+    }
+    
+    .perfilgraf {
+        order: 1;
+    }
+    
+    .otrasop {
+        order: 4;
+    }
+    
+    .reciente {
+        order: 3;
+    }
+}
+
+/** Vickyd **/
+
+.logo {
+    max-width: 150px;
+}
+
+#navbarText ul{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.welcome-back .container {
+    background: linear-gradient(90deg, rgba(2,86,138,1) 0%, rgba(111,157,185,1) 100%);
+    color: white;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+  
+.align-items-center {
+    height: 10rem;
+    margin: 0;
+    width: 100%;
+}
+
+.cant-dinero {
+    font-size: 1.5rem;
+}
+
+.bloque-cuenta {
+    border-left: 5px solid white;
+}
