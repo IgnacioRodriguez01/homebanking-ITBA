@@ -24,6 +24,12 @@ nav svg {
     color: white;
 }
 
+.alert {
+    margin-top: 2rem;
+    width: 100%;
+    color: white;
+}
+
 @media screen and (max-width: 1025px){
     .container {
         align-items: center;
