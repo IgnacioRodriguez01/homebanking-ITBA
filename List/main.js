@@ -30,4 +30,17 @@ var changeTaskState = function (){
         this.parentNode.removeChild(this);
 };
 
+const order = () => {
+    const done = [];
+    const toDo = [];
+    tasksContainer.childNodes.forEach( el => {
+        el.classList.contains('done') ? done.push(el) : toDo.push(el)
+    })
+    return [...toDo, ...done];
+}
+
+const renderOrderedTasks = () => {
+    order().forEach(el => tasksContainer.removeChild(el))
+    
+}
 setDate();
