@@ -1,0 +1,405 @@
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'roboto',sans-serif;
+}
+
+/** Vickyd Header **/
+
+.logo {
+    max-width: 150px;
+}
+
+#navbarText ul{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.form-check {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
+.welcome-back .container {
+    background: linear-gradient(90deg, rgba(2,86,138,1) 0%, rgba(111,157,185,1) 100%);
+    color: white;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+  
+.align-items-center {
+    height: 10rem;
+    margin: 0;
+    width: 100%;
+}
+
+.cant-dinero {
+    font-size: 1.5rem;
+}
+
+.bloque-cuenta {
+    border-left: 5px solid white;
+}
+
+/** Modo oscuro **/
+body.darkmode {
+    background-color: #212529 !important;
+    color: white !important;
+}
+
+.darkmode .navbar-text {
+    color: white;
+}
+
+.darkmode .nav-link{
+    color: white;
+ }
+.darkmode main {
+    background-color: #212529 !important;
+}
+
+.darkmode .cuentas, .darkmode .perfilgraf, .darkmode .otrasop, .darkmode .reciente {
+    background-color: #343a40;
+    color: white;
+}
+
+.darkmode .articulo .articulo2, .darkmode .articulo .articulo3{
+    background-color: #adb5bd;
+    border: #adb5bd;
+}
+
+.darkmode .articulo .articulo2 h2 {
+    color:rgb(8, 8, 142);
+}
+
+.darkmode .accordion-button {
+    background-color: #adb5bd !important;
+    color: black;
+    font-weight: bold;
+}
+
+.darkmode .reciente ul li {
+    background-color: #adb5bd !important;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.darkmode footer .bg-light {
+
+    background-color: #343a40 !important;
+}
+
+/** Dgamez Cuentas **/
+
+.cuentas h2{
+    align-self: flex-start;
+    margin-left: 1.5rem;
+    font-weight: 100;
+}
+
+.articulo {
+    display: flex;
+    width: 95%;
+    height: 22%;
+    background: linear-gradient(rgb(14, 26, 197), rgb(39, 118, 255));
+    margin: 1rem;
+    border-radius: .5em;
+    overflow: hidden;
+}
+
+.articulo2 {
+    width: 50%;
+    background: rgb(255, 255, 255);
+}
+
+.articulo3 {
+    background: rgb(255, 255, 255);
+    width: 25%;
+    margin-right: 25%;
+    border: 2px solid rgb(255, 255, 255);
+    
+}
+
+.articulo3 h3 {
+    font-size: 30px;
+    font-weight: 100;
+    color:  rgb(8, 8, 142);
+    padding-top: 3.2rem;
+    text-align: center;
+}
+
+.articulo h2 {
+    font-weight: 100;
+    color: rgb(11, 141, 255);
+    padding-top: 2rem;
+    padding-left: 2rem
+    
+}
+
+
+.articulo p {
+    font-size: 1.2rem;
+    margin-left: 4%;
+    color:  rgb(8, 8, 142);
+    
+}
+/* 
+.pin {
+    height: 10%;
+    margin: 1em;
+    background:  rgb(255, 255, 255);
+    border-radius: 0.5em;
+}
+
+.pin h2 {
+    margin-top: 10px;
+    font-weight: 100;
+    margin-left: 1rem;
+}
+
+
+.content-img {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-img img{
+    width: 100%;
+    height: 100%;
+    margin: 75rem;
+    margin-right: 10px;
+} */
+
+/** Cervellini Perfil+Graf **/
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.cuadrado{
+    display: flex;
+    flex-direction: column;
+	background: white;
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 20px;
+}
+
+.contenedor-img{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    border-radius: 100%;
+}
+
+.contenedor-img img{
+    width: 100px;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.cuadrado .label-1{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.cuadrado .label-2{
+    font-size: 15px;
+}
+
+.cuadrado a{
+    margin-top: 5px;
+    color: royalblue;
+}
+
+.contenedor-cuadrado-23{
+    display: flex;
+    margin-top: 0.5px;
+    text-align: center;
+    width: 100%;
+    height: 20%;
+    border-top: 1px solid rgba(0, 0, 0, 0.11);
+    
+}
+
+.cuadrado-2, .cuadrado-3{
+    display: flex;
+    flex-direction: column;
+	background: white;
+    width: 50%;
+    margin-right: 0.5px;
+    text-align: center;
+    padding: 30px;
+}
+
+.cuadrado-3 {
+    border-left: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.contenedor-cuadrado-23 .label-1{
+    font-size: 20px;
+}
+
+.contenedor-cuadrado-23 .label-2{
+    font-size: 15px;
+    color: #666;
+}
+
+.cuadrado-4{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1px;
+	background: white;
+    width: 100%;
+    min-height: 40%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.11);
+    padding: 20px;
+}
+ .cuadrado-4 label{
+     font-size: 15px;
+     text-align: start;
+}
+
+/** Nicovera Actividad Reciente **/
+
+.titulosrecent {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.reciente ul {
+    width: calc(100% - 2rem);
+}
+
+.reciente ul li {
+    padding: 0;
+    list-style: none;
+    color: black;
+}
+
+.reciente ul span {
+    color: #0843e6ad;
+}
+
+/** Ramiro Otras Opciones**/
+
+.otrasop > h2 {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+.otrasop .accordion {
+    width: 75%;
+    height: 40%;
+}
+
+.accordion a {
+    text-decoration: none;
+}
+
+#collapseOne .accordion-body, #collapseFour .accordion-body{
+    display: block;
+}
+
+.accordion-button {
+    font-size: 1rem;
+}
+
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/** Ignacior Grid **/
+
+main {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.cuentas, .perfilgraf, .otrasop, .reciente {
+    box-shadow: 0 7px 16px 0 rgb(0 0 0 / 5%), 0 1px 3px 0 rgb(0 0 0 / 5%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    background-color: white;
+}
+
+.cuentas {
+    /*  */
+}
+
+.perfilgraf {
+    /*  */
+}
+
+.otrasop {
+    /*  */
+    position: relative;
+}
+
+.reciente {
+    /*  */
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width: 1000px) {
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cuentas {
+        order: 2;
+    }
+    
+    .perfilgraf {
+        order: 1;
+    }
+    
+    .otrasop {
+        order: 4;
+    }
+    
+    .reciente {
+        order: 3;
+    }
+}
