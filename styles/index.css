@@ -3,6 +3,18 @@
     padding: 0;
 }
 
+a {
+    cursor: pointer;
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-footer {
+    border: none;
+}
+
 .eye {
     vertical-align: center;
     height: 1.25rem;
@@ -25,7 +37,8 @@ nav svg {
 }
 
 .alert {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    padding: 0.5rem;
     width: 100%;
     color: white;
 }

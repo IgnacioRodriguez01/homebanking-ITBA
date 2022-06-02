@@ -1,42 +1,131 @@
-//Acá va a estar la validación del formulario
+/********Form objects********/
 
-const form = document.getElementById('form');
-const doc = document.querySelector('#doc input');
-const docOpc = document.querySelector('#doc button');
-const docOpcList = document.querySelector('#doc ul');
-const usuario = document.getElementById('usuario');
-const clave = document.getElementById('clave');
-const claveToggle = document.getElementById('clave-toggle');
-const recordarme = document.getElementById('recordarme');
-const mensaje = document.getElementById('mensaje');
+const formLogin = {
+    form: document.getElementById('formLogin'),
+    fields: {
+        doc: document.querySelector('#docLogin input'),
+        usuario: document.getElementById('usuarioLogin'),
+        clave: document.getElementById('claveLogin')
+    },
+    docOpc: document.querySelector('#docLogin button'),
+    docOpcList: document.querySelector('#docLogin ul'),
+    tipoDoc: '',
+    claveToggle: document.getElementById('clave-toggleLogin'),
+    recordarme: document.getElementById('recordarme'),
+    mensaje: document.getElementById('mensajeLogin'),
+    submit: document.getElementById('submitLogin')
+}
 
-let tipoDoc = '';
+const formRegister = {
+    form: document.getElementById('formRegister'),
+    fields: {
+        doc: document.querySelector('#docRegister input'),
+        usuario: document.getElementById('usuarioRegister'),
+        email: document.getElementById('emailRegister'),
+        clave: document.getElementById('claveRegister'),
+        clave2: document.getElementById('clave2Register')
+    },
+    docOpc: document.querySelector('#docRegister button'),
+    docOpcList: document.querySelector('#docRegister ul'),
+    tipoDoc: '',
+    mensaje: document.getElementById('mensajeRegister'),
+    submit: document.getElementById('submitRegister')
+}
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (doc.value === '' || usuario.value === '' || clave.value === '') {
-        mostrarAlerta('Todos los campos son obligatorios');
+const formPassword = {
+    form: document.getElementById('formPassword'),
+    fields: {
+        email: document.getElementById('emailPassword')
+    },
+    mensaje: document.getElementById('mensajePassword'),
+    submit: document.getElementById('submitPassword')
+}
+
+const FORMS = [formLogin, formRegister, formPassword];
+
+/********Form objects destructuring********/
+
+document.addEventListener('DOMContentLoaded', formEvents(FORMS));
+
+function formEvents(forms) {
+    forms.forEach(form => {
+        form.submit.addEventListener('click', (e) => {
+            formValidator(form);
+        });
+
+        const hasDoc = Object.keys(form.fields).some(field => field === "doc");
+
+        if (hasDoc) {
+            form.docOpcList.addEventListener('click', (e) => {
+                form.docOpc.textContent = e.target.dataset.id;
+                form.tipoDoc = e.target.dataset.id;
+            });
+        }
+    })
+}
+
+function formValidator(formObj) {
+    const {fields, mensaje} = formObj;
+
+    //Validación campos vacíos
+    const emptyField = Object.values(fields).some(field => field.value === "");
+    if(emptyField) {
+        mostrarAlerta(mensaje, 'Todos los campos son obligatorios');
         return;
     }
-    if (isNaN(doc.value)) {
-        mostrarAlerta('Introducir un documento numérico');
-        return;
+    
+    //Validación documento
+    const hasDoc = Object.keys(fields).some(field => field === "doc");
+    if (hasDoc) {
+        if (isNaN(fields.doc.value)) {
+            mostrarAlerta(mensaje, 'Introducir un documento numérico');
+            return;
+        }
+        if (formObj.tipoDoc === '') {
+            mostrarAlerta(mensaje, 'Introducir el tipo de documento');
+            return;
+        }
     }
-    if (tipoDoc === '') {
-        mostrarAlerta('Introducir el tipo de documento');
-        return;
+
+    //Validación email
+    const hasEmail = Object.keys(fields).some(field => field === "email");
+    if (hasEmail) {
+        const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+
+        if (!fields.email.value.match(emailRegex)) {
+            mostrarAlerta(mensaje, 'Introducir un email válido');
+            return;
+        }
     }
-    mostrarAlerta('Logeado correctamente', 'correcto');
-    setTimeout(() => {
-        window.location.href = 'homebanking.html';
-    }, 3000);
 
-});
+    //Validación final específica
+    if (formObj == formRegister) {
+        if (fields.clave.value != fields.clave2.value) {
+            mostrarAlerta(mensaje, 'La clave debe ser igual en ambos casos');
+            return;
+        }
+        mostrarAlerta(mensaje, 'Registrado correctamente', 'correcto');
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 3000);
+    }
 
-docOpcList.addEventListener('click', (e) => {
-    docOpc.textContent = e.target.dataset.id;
-    tipoDoc = e.target.dataset.id;
-});
+    if (formObj == formPassword) {
+        mostrarAlerta(mensaje, 'Correo de recuperación enviado.', 'correcto');
+    }
+
+    if(formObj == formLogin) {
+        mostrarAlerta(mensaje, 'Logeado correctamente', 'correcto');
+        setTimeout(() => {
+            window.location.href = 'homebanking.html';
+        }, 3000);
+    }
+
+}
+
+/********Campos específicos********/
+
+const { fields:{clave} , recordarme, claveToggle} = formLogin;
 
 claveToggle.addEventListener('click', () => {
     const type = clave.getAttribute("type") === "password" ? "text" : "password";
@@ -46,9 +135,10 @@ claveToggle.addEventListener('click', () => {
 recordarme.addEventListener('click', (e) => {
     console.log('Recordarme:', e.target.checked);
 });
+ 
+/********Funciones generales********/
 
-function mostrarAlerta(error, tipo) {
-    const contenedor = mensaje;
+function mostrarAlerta(contenedor, error, tipo) {
     const err = document.createElement('div');
     const previous = contenedor.querySelector('.alert');
 
