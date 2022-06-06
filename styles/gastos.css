@@ -1,9 +1,15 @@
 :root {
-    --primary: #A5C882;
+    --primary: #2776b3;
     --secondary: #3f93d3;
     --light: #fff;
     --dark: #000;
     --diabled: #e7e7e7;
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -11,6 +17,20 @@ body {
     margin: 0;
     height: 100vh;
     background-color: var(--diabled);
+}
+
+h1 {
+    margin-bottom: 2rem;
+    margin-top: 15px;
+}
+
+.volver {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(201, 201, 201);
+    border-radius: 5px;
 }
 
 *:first-letter {
@@ -49,9 +69,6 @@ body {
 #pFinal , #pTotal {
     color: #0f0e0e;
     border-radius: 15px;
-  
-
-    
 }
 
 #dateNumber {
@@ -59,6 +76,7 @@ body {
 }
 
 #dateText {
+    width: fit-content;
     letter-spacing: 3px;
     text-transform: uppercase;
 }
@@ -121,6 +139,7 @@ input:focus {
     padding: 15px;
     margin-top: 15px;
     color: var(--light);
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -138,7 +157,6 @@ input:focus {
     padding: 25px;
     background-color: var(--light);
     width: 100%;
-    height: 60%;
     max-width: 800px;
     border-radius: 20px;
 }
@@ -185,9 +203,6 @@ input[type="range"]:not(:last-child){
 }
 section:not(:last-child){
     margin-bottom: 40px;
-}
-section:not(:first-child){
-    margin-top: 40px;
 }
 section:last-child{
     background-color: #e1e0f0;
