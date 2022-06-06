@@ -13,6 +13,7 @@ const dateYear = document.getElementById('dateYear');
 const pTotal = document.getElementById('pTotal');
 const pFinal = document.getElementById('pFinal');
 
+const billInput = document.getElementById("bill");
 
 // Tasks Container
 const tasksContainer = document.getElementById('tasksContainer');
@@ -42,50 +43,54 @@ const setDate = () => {
     dateYear.textContent = date.toLocaleString('es', { year: 'numeric' });
 };
 
-const addNewTask = event => {
+const addNewTask = event => { //Nuevo gasto
     event.preventDefault();
+
+    //Validación campos
     if(monto.value=="" || destinatario.value=="" ){
         return;
     }
-    const fechaid = Date.now()
+
+    //Creación de gasto en HTML
+    const fechaid = Date.now();
     const task = document.createElement('div');
     task.classList.add('task', 'roundBorder');
     task.addEventListener('click', changeTaskState)
     task.textContent = `Destinatario ${destinatario.value} Cantidad ${monto.valueAsNumber}`;
-    task.id= fechaid
+    task.id= fechaid;
     tasksContainer.prepend(task);
+
+    //Creación de objeto gasto
     console.log(monto.valueAsNumber,destinatario.value);
     crearGasto(monto.valueAsNumber,destinatario.value, fechaid);
     presupuestoInput.disabled = true;
+
+    //Actualizacion de gasto en propina
+    billInput.value = gastosArr.reduce( (total, obj) => total + obj.gasto, 0);
+    calculateTip();
     event.target.reset();
-  
 };
 
-var changeTaskState = function (){
-        this.parentNode.removeChild(this); 
+var changeTaskState = function (){ //Borrar individual
+    this.parentNode.removeChild(this); 
+    gastosArr = gastosArr.filter(gasto => gasto.dataid != this.id);
+    console.log(gastosArr);
+    presupuestoRestante = presupuesto - gastosArr.reduce( (total, obj) => total + obj.gasto, 0);
+    pFinal.textContent = `$${presupuestoRestante}`;
 
-        console.log (gastosArr.filter(gasto=> gasto.dataid != this.id))
-        console.log(pFinal.textContent = `$${presupuestoRestante}`);
-
+    //Actualizacion de gasto en propina
+    billInput.value = gastosArr.reduce( (total, obj) => total + obj.gasto, 0);
+    calculateTip();
 };
 
-
-
-const order = () => {
-    const done = [];
-    const toDo = [];
-    tasksContainer.childNodes.forEach( el => {
-        el.classList.contains('done') ? done.push(el) : toDo.push(el)
-    })
-    return [...toDo, ...done];
-}
-
-const renderOrderedTasks = () => {
+const renderOrderedTasks = () => { //Borrar todo
     limpiarHTML(tasksContainer)
     presupuestoInput.disabled = false;
     pFinal.textContent = "$0,00";
     pTotal.textContent = "$0,00";
-    gastosArr=[];
+    billInput.value = 0;
+    calculateTip();
+    gastosArr = [];
 }
 setDate(); 
 
@@ -120,7 +125,6 @@ sliders.forEach(function(slider){
     slider.addEventListener("input",calculateTip);
 });
 
-const billInput = document.getElementById("bill");
 billInput.addEventListener("change",calculateTip);
 
 

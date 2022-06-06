@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tareas</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/gastos.css">
     
-    <script src="main.js" type="text/javascript" defer></script>
+    <script src="js/gastos.js" type="text/javascript" defer></script>
 </head>
 <body>
     <div class="list roundBorder">
+        <a class="volver" href="homebanking.html">Volver</a>
+        <h1>Lista de gastos</h1>
         <div class="date">
             <div class="dateRight">
                 <div id="dateNumber"></div>
@@ -36,6 +38,7 @@
         <div id="tasksContainer"></div>
     </div>
     <div class="container">
+        <h1>Divisor de gastos (Con propina) </h1>
         <section>
             <div class="wrapper">
                 <label for="bill" class="lbl">
@@ -43,7 +46,7 @@
                 </label>
                 <div class="input-box">
                     <span>$</span>
-                    <input type="number" value="0.00" id="bill" class="val">
+                    <input type="text" value="0.00" id="bill" class="val">
                 </div>
             </div>
             <div class="wrapper">
@@ -69,7 +72,7 @@
                     0
                 </span>
             </div>
-            <input type="range" min="1" id="tip" value="15">
+            <input type="range" min="0" id="tip" value="15">
             <div class="wrapper">
                 <label for="no-of-people" class="lbl">
                     Nro. de Personas
