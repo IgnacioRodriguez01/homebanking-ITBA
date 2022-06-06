@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    
+    <script src="main.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <div class="list roundBorder">
+        <div class="date">
+            <div class="dateRight">
+                <div id="dateNumber"></div>
+                <div>
+                    <div id="dateMonth"></div>
+                    <div id="dateYear"></div>
+                </div>
+            </div>
+            <div id="dateText"></div>
+        </div>
+        <form onsubmit="addNewTask(event)">
+            <input type="number" id="presupuesto" autocomplete="off" placeholder="Presupuesto" class="caja">
+            <input type="text" id="destinatario" autocomplete="off" placeholder="Destinatario" class="roundBorder">
+            <input type="number" id="monto" autocomplete="off" placeholder="Cantidad" class="caja">
+            <button type="submit" class="addTaskButton">+</button>
+          <button type="button" class="orderButton roundBorder" onclick="renderOrderedTasks()">Reiniciar Lista</button>
+        </form>
+        <form>
+        <div id="ptotalcontainer"><h2 class="pTotal">Total=<h2 class="pTotal"id="pTotal">$0,00</h2></h2></div>
+        <div id="totalcontainer"><h2 class="pFinal"> Final=<h2 class="pFinal"id="pFinal">$0,00</h2></h2></div>
+        </form>
+        <div id="tasksContainer"></div>
+    </div>
+    <div class="container">
+        <section>
+            <div class="wrapper">
+                <label for="bill" class="lbl">
+                    Gasto
+                </label>
+                <div class="input-box">
+                    <span>$</span>
+                    <input type="number" value="0.00" id="bill" class="val">
+                </div>
+            </div>
+            <div class="wrapper">
+                <span class="lbl">Propina</span>
+                <span id="tip-amount" class="val">
+                    $0
+                </span>
+            </div>
+            <hr>
+            <div class="wrapper">
+                <span class="lbl">Monto Total</span>
+                <span id="total-amount" class="val">
+                    $0
+                </span>
+            </div>
+        </section>
+        <section>
+            <div class="wrapper">
+                <label for="tip" class="lbl">
+                    Propina %
+                </label>
+                <span id="tip-percent" class="val">
+                    0
+                </span>
+            </div>
+            <input type="range" min="1" id="tip" value="15">
+            <div class="wrapper">
+                <label for="no-of-people" class="lbl">
+                    Nro. de Personas
+                </label>
+                <span id="split-num" class="val">
+                    0
+                </span>
+            </div>
+            <input type="range" min="1" max="15" id="no-of-people" value="1">
+        </section>
+        <section>
+            <div class="wrapper">
+                <span class="lbl">
+                    Propina Por Persona
+                </span>
+                <span id="tip-per-person" class="val">
+                    $0
+                </span>
+            </div>
+            <div class="wrapper">
+                <span class="lbl">
+                    Total Por Persona
+                </span>
+                <span id="total-per-person" class="val">
+                    $0
+                </span>
+            </div>
+        </section>
+    </div>
+  
+</body>
+</html>

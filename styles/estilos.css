@@ -1,0 +1,200 @@
+:root {
+    --primary: #A5C882;
+    --secondary: #3f93d3;
+    --light: #fff;
+    --dark: #000;
+    --diabled: #e7e7e7;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    height: 100vh;
+    background-color: var(--diabled);
+}
+
+*:first-letter {
+    text-transform: capitalize;
+}
+
+.list {
+    margin: 25px auto;
+    padding: 25px;
+    background-color: var(--light);
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.dateRight {
+    display: flex;
+    align-items: center;
+}
+
+.pFinal, .pTotal{
+    color: #171616;
+    float: left;
+    padding: 0.2em;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+#pFinal , #pTotal {
+    color: #0f0e0e;
+    border-radius: 15px;
+  
+
+    
+}
+
+#dateNumber {
+    font-size: 50px;
+}
+
+#dateText {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+#dateMonth,
+#dateNumber,
+#dateText  {
+    font-weight: bold;
+}
+
+#dateMonth,
+#dateYear {
+    margin-left: 7px;
+    font-size: 20px;
+}
+
+form {
+    margin: 20px 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 15px;
+}
+
+input {
+    border: none;
+    padding-left: 10px;
+    background-color: var(--diabled);
+    border-radius: 15px;
+}
+
+
+input:focus {
+    outline: none;
+}
+
+.addTaskButton,
+.orderButton {
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.addTaskButton {
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: var(--diabled);
+    border-radius: 15px;
+}
+
+.orderButton {
+    background-color: var(--secondary);
+    color: var(--light);
+    border-radius: 15px;
+}
+
+.task {
+    background-color: var(--primary);
+    padding: 15px;
+    margin-top: 15px;
+    color: var(--light);
+    cursor: pointer;
+}
+
+.done {
+    background-color: var(--diabled);
+    text-decoration: line-through;
+    color: var(--dark);
+}
+
+.container{
+    padding:20px;
+    background-color: white;
+    padding: 30px;
+    margin: 25px auto;
+    padding: 25px;
+    background-color: var(--light);
+    width: 100%;
+    height: 60%;
+    max-width: 800px;
+    border-radius: 20px;
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 10px;
+}
+.lbl{
+    font-size: 16px;
+    color: #004e92;
+    font-weight: 400;
+}
+.val{
+    color: #004e92;
+    font-weight: 500;
+    font-size: 18px;
+}
+.input-box{
+    background-color: #e1e0f0;
+    color: #004e92;
+    padding: 5px;
+    border-radius: 15px;
+}
+#bill{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100px;
+    text-align: right;
+    color: #004e92;
+}
+hr{
+    border: none;
+    border-bottom: 1px solid #e1e0f0;
+}
+input[type="range"]{
+    width: 100%;
+    cursor: pointer;
+}
+input[type="range"]:not(:last-child){
+    margin-bottom: 5px;
+}
+section:not(:last-child){
+    margin-bottom: 40px;
+}
+section:not(:first-child){
+    margin-top: 40px;
+}
+section:last-child{
+    background-color: #e1e0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+section:last-child .val,
+section:last-child .lbl{
+    color: #004e92;
+}
