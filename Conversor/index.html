@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Conversor</title>
+</head>
+<body>
+    <div class="GContainer">
+        <h1>Convesor de Pesos</h1>
+    <p>Seleccione moneda y cantidad para su conversion:</p>
+
+    <div class="cContainer1">
+        <div class="moneda">
+            <select id="moneda1">
+                <option value="ARS" selected>ARS</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CLP">CLP</option>
+                    <option value="PAB">PAB</option>
+                    <option value="UYU">UYU</option>
+            </select>
+            <input type="number" id="cantidad-uno" placeholder="0" value="1">
+        </div>
+    </div>
+    <div class="cContainer2">
+        <div class="moneda">
+            <select id="moneda2">
+                <option value="ARS">ARS</option>
+                <option value="USD" selected>USD</option>
+                <option value="EUR">EUR</option>
+                <option value="BRL">BRL</option>
+                <option value="CLP">CLP</option>
+                <option value="PAB">PAB</option>
+                <option value="UYU">UYU</option>
+                
+            </select>
+            <input type="number" id="cantidad-dos" placeholder="0" value="">
+        </div>
+    </div>
+        <div class="tazaDeCambio">
+            <button class="btntaza" id="taza">
+                Cambio
+            </button>
+            </div>
+            <div class="cambio" id="cambio"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

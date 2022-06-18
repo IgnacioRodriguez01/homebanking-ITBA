@@ -1,0 +1,140 @@
+:root {
+    --primary: #2776b3;
+    --secondary: #3f93d3;
+    --light: #fff;
+    --dark: #000;
+    --diabled: #e7e7e7;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato', sans-serif;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--diabled);
+}
+
+.GContainer {
+    background-color: rgb(245, 245, 245);
+    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    max-width: 810px;
+    border-radius: 15px;
+    
+
+}
+h1{
+    color: var(--primary);
+    margin-bottom: 2rem;
+    margin-top: 15px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 1.15em;
+
+}
+
+.tazaDeCambio {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.btntaza {
+    color: white;
+    background-color: var(--secondary);
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: 1em;
+    padding: 5px 12px;
+    border: 0;
+    margin: 25px auto;
+    padding: 25px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+
+}
+
+.moneda {
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.moneda select{
+    padding: 18.5px 20px 18.5px;
+    font-size: 16px;
+    border: 0;
+
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#moneda2{
+    cursor: pointer;
+}
+
+.moneda input{
+    border: 0;
+    font-size: 30px;
+    text-align: left;
+    padding: 10px;
+    color: #2776b3;
+    
+}
+
+.cContainer1{
+    background-color: white;
+    padding: 5px;
+    background-color: var(--light);   
+    max-width: 810px;
+    border-radius: 20px;
+}
+
+.cContainer2{
+    background-color: white;
+    padding: 5px;
+    background-color: var(--light);   
+    max-width: 810px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+.cambio{
+    color: var(--primary);
+    font-size: 14px;
+    padding: 0;
+}
+
+@media (max-width:600px) {
+    .moneda input{
+        width: 200px;
+    }
+}
+
+#cambio{
+    text-align: center;
+    color: var(--primary);
+    margin-top: 3px;
+    font-size: 1.5rem;
+}
