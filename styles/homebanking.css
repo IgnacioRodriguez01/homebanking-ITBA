@@ -1,11 +1,11 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'roboto',sans-serif;
 }
 
-/** Vickyd Header **/
+/*********************** Vickyd Header ***********************/
 
 .logo {
     max-width: 150px;
@@ -32,99 +32,74 @@
 }
 
 .cant-dinero {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .bloque-cuenta {
     border-left: 5px solid white;
 }
 
-/** Dgamez Cuentas **/
+/*********************** Dgamez Cuentas ***********************/
 
-.cuentas h2{
+.cuentas * {
+    margin: 0;
+    position: relative;
+}
+
+.cuentas h2 {
     align-self: flex-start;
-    margin-left: 1.5rem;
     font-weight: 100;
+    margin-bottom: 2vh;
 }
 
-.articulo {
-    display: flex;
-    width: 95%;
-    height: 22%;
-    background: linear-gradient(rgb(14, 26, 197), rgb(39, 118, 255));
-    margin: 1rem;
-    border-radius: .5em;
-    overflow: hidden;
-}
-
-.articulo2 {
-    width: 50%;
-    background: rgb(255, 255, 255);
-}
-
-.articulo3 {
-    background: rgb(255, 255, 255);
-    width: 25%;
-    margin-right: 25%;
-    border: 2px solid rgb(255, 255, 255);
-    
-}
-
-.articulo3 h3 {
-    font-size: 30px;
-    font-weight: 100;
-    color:  rgb(8, 8, 142);
-    padding-top: 3.2rem;
-    text-align: center;
-}
-
-.articulo h2 {
-    font-weight: 100;
-    color: rgb(11, 141, 255);
-    padding-top: 2rem;
-    padding-left: 2rem
-    
-}
-
-
-.articulo p {
-    font-size: 1.2rem;
-    margin-left: 4%;
-    color:  rgb(8, 8, 142);
-    
-}
-/* 
-.pin {
-    height: 10%;
-    margin: 1em;
-    background:  rgb(255, 255, 255);
-    border-radius: 0.5em;
-}
-
-.pin h2 {
-    margin-top: 10px;
-    font-weight: 100;
-    margin-left: 1rem;
-}
-
-
-.content-img {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    object-fit: cover;
-    justify-content: center;
-    align-items: center;
-}
-
-.content-img img{
+.cuenta {
+    height: 20%;
     width: 100%;
-    height: 100%;
-    margin: 75rem;
-    margin-right: 10px;
-} */
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
 
-/** Cervellini Perfil+Graf **/
+.cuenta::before {
+    content: '';
+    display: block;
+    width: 15%;
+    height: 100%;
+    min-height: 60px;
+    background: linear-gradient(45deg, #156596, rgb(108, 149, 220));
+    border-radius: 0 20px 20px  0;
+}
+
+.cuenta > div {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cuenta > div:first-child {
+    margin-left: 5%;
+}
+
+.balance {
+    position: absolute;
+    right: 20px;
+    align-items: flex-end;
+}
+
+.balance span {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.cuenta p {
+    color: gray;
+}
+
+.cuenta.select::before {
+    background: linear-gradient(45deg, #0b3651, rgb(70, 96, 142));
+}
+
+/*********************** Cervellini Perfil+Graf ***********************/
 
 .perfil {
     display: flex;
@@ -223,7 +198,11 @@
      text-align: start;
 }
 
-/** Nicovera Actividad Reciente **/
+/*********************** Nicovera Actividad Reciente ***********************/
+
+.reciente > * {
+    margin: 0;
+}
 
 .titulosrecent {
     margin-bottom: 2rem;
@@ -236,59 +215,80 @@
 }
 
 .reciente ul li {
+    display: flex;
+    justify-content: space-between;
     padding: 0;
     list-style: none;
     color: black;
 }
 
-.reciente ul span {
-    color: #0843e6ad;
+.recent-date {
+    text-align: center;
+    color: #276fa4;
+    font-weight: bold;
+}
+.recent-date > div {
+    font-size: 1.3rem;
+}
+.recent-name {
+    width: 60%;
+}
+.recent-name > div {
+    color: gray;
+}
+.recent-amount {
+    font-weight: bold;
 }
 
-/** Ramiro Otras Opciones**/
+/*********************** Ramiro Otras Operaciones ***********************/
 
 .otrasop > h2 {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
+    align-self: flex-start;
+    margin-bottom: 50px;
 }
 
-.otrasop .accordion {
-    width: 75%;
-    height: 40%;
+.gridop {
+    width: 100%;
+    min-height: 250px;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(minmax(auto-fill, 3), minmax(100px, 1fr));
+    grid-template-rows: 50% 50%;
+    grid-auto-flow:column;
+    gap: 20px;
+    justify-items: center;
 }
 
-.accordion a {
-    text-decoration: none;
-}
-
-#collapseOne .accordion-body, #collapseFour .accordion-body{
-    display: block;
-}
-
-.accordion-button {
-    font-size: 1rem;
-}
-
-.accordion-body {
+.opcion {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    text-decoration: none;
     color: black;
-    cursor: pointer;
-    font-size: 0.8rem;
 }
 
-/** Ignacior Grid **/
+.opcion-icon {
+    height: 75px;
+    margin-bottom: 20px;
+    border: 1px solid #276fa4;
+    padding: 12px;
+    border-radius: 50%;
+}
+.opcion-icon img {
+    height: 100%;
+}
+
+/*********************** Ignacior Grid/Layout ***********************/
 
 main {
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: minmax(auto, 65%) minmax(auto, 35%);
     gap: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #f0f0f0;
-    overflow-x: hidden;
 }
 
 .cuentas, .perfilgraf, .otrasop, .reciente {
@@ -297,12 +297,14 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 50vh;
     background-color: white;
+    position: relative;
 }
 
 .cuentas {
-    /*  */
+    justify-content: flex-start;
+    padding: 25px;
 }
 
 .perfilgraf {
@@ -310,14 +312,14 @@ main {
 }
 
 .otrasop {
-    /*  */
-    position: relative;
+    justify-content: flex-start;
+    padding: 25px;
 }
 
 .reciente {
-    /*  */
     align-items: flex-start;
     justify-content: flex-start;
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -329,6 +331,7 @@ main {
 
     .cuentas {
         order: 2;
+        min-height: fit-content;
     }
     
     .perfilgraf {
@@ -337,6 +340,7 @@ main {
     
     .otrasop {
         order: 4;
+        min-height: fit-content;
     }
     
     .reciente {
