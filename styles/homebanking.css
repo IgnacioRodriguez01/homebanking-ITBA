@@ -17,6 +17,7 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    font-weight: bold;
 }
 
 .form-check {
@@ -28,6 +29,17 @@
 
 .form-check-label {
     margin-left: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    margin: 0px 10px 0px 10px;
+}
+
+.nav-icon {
+    height: 1.5em;
+    width: 1.5em;
 }
 .welcome-back .container {
     background: linear-gradient(90deg, rgba(2,86,138,1) 0%, rgba(111,157,185,1) 100%);
@@ -97,6 +109,15 @@ body.darkmode {
 .darkmode footer .bg-light {
 
     background-color: #343a40 !important;
+}
+
+/** contenedor chart**/
+.perfilgraf {
+    height: fit-content;
+}
+
+#myChart {
+    margin-right: 0.5rem;
 }
 
 /** Dgamez Cuentas **/
