@@ -11,7 +11,28 @@
     font-family: 'Lato', sans-serif;
 
 }
-
+.bvolver {
+    color: white;
+    border-radius: 1rem;
+    font-size: 1em;
+    padding: 0;
+    border: 0;
+    margin: 1px auto;
+    padding: 25px;
+    width: 555px;
+    max-width: 800px;
+    border-radius: 10px;
+}
+.volver {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(201, 201, 201);
+    border-radius: 5px;
+    margin-bottom: 2em;
+    text-align: left;
+}
 body {
     display: flex;
     flex-direction: column;
