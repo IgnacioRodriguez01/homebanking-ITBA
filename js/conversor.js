@@ -1,4 +1,4 @@
-const moneda_one = document.getElementById("moneda1")
+/*const moneda_one = document.getElementById("moneda1")
 const moneda_two = document.getElementById("moneda2")
 const cantidad_one = document.getElementById("cantidad-uno")
 const cantidad_two = document.getElementById("cantidad-dos")
@@ -31,4 +31,4 @@ taza.addEventListener('click', () =>{
     moneda_two.value = temp;
     calculate();
 } );
-calculate();
+calculate();/
