@@ -129,8 +129,8 @@
 
 @keyframes slide {
     0% {
-      -webkit-transform: translate(120%);
-              transform: translate(120%);
+      -webkit-transform: translate(100vw);
+              transform: translate(100vw);
     }
     100% {
       -webkit-transform: translate(-100%);
