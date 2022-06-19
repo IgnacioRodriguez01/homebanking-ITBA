@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,50 +8,55 @@
     <link rel="stylesheet" href="styles/conversor.css">
     <title>Conversor</title>
 </head>
-<body>
-    <div class="bvolver">
-    <a class="volver" href="homebanking.html">Volver</a></div>
-    <div class="GContainer">
-        <h1>Conversor de Pesos</h1>
-    <p>Seleccione moneda y cantidad para su conversión:</p>
 
-    <div class="cContainer1">
-        <div class="moneda">
-            <select id="moneda1">
-                <option value="ARS" selected>ARS</option>
+<body>
+    <div class="GContainer">
+        <div class="volver">
+            <a href="homebanking.html">Volver</a>
+        </div>
+        <h1>Conversor de monedas</h1>
+        <p>Seleccione moneda y cantidad para su conversión:</p>
+
+        <div class="cContainer1">
+            <div class="moneda">
+                <select id="moneda1">
+                    <option value="ARS" selected>ARS</option>
                     <option value="USD">USD</option>
                     <option value="EUR">EUR</option>
                     <option value="BRL">BRL</option>
                     <option value="CLP">CLP</option>
                     <option value="PAB">PAB</option>
                     <option value="UYU">UYU</option>
-            </select>
-            <input type="number" id="cantidad-uno" placeholder="0" value="1">
+                </select>
+                <input type="number" id="cantidad-uno" placeholder="0" value="1">
+            </div>
         </div>
-    </div>
-    <div class="cContainer2">
-        <div class="moneda">
-            <select id="moneda2">
-                <option value="ARS">ARS</option>
-                <option value="USD" selected>USD</option>
-                <option value="EUR">EUR</option>
-                <option value="BRL">BRL</option>
-                <option value="CLP">CLP</option>
-                <option value="PAB">PAB</option>
-                <option value="UYU">UYU</option>
-                
-            </select>
-            <input type="number" id="cantidad-dos" placeholder="0" value="">
+        <div class="cContainer2">
+            <div class="moneda">
+                <select id="moneda2">
+                    <option value="ARS">ARS</option>
+                    <option value="USD" selected>USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="BRL">BRL</option>
+                    <option value="CLP">CLP</option>
+                    <option value="PAB">PAB</option>
+                    <option value="UYU">UYU</option>
+
+                </select>
+                <input type="number" id="cantidad-dos" placeholder="0" value="">
+            </div>
         </div>
-    </div>
         <div class="tazaDeCambio">
             <button class="btntaza" id="taza">
-                Cambio
+                Invertir
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
             </button>
-            </div>
-            <div class="cambio" id="cambio"></div>
         </div>
+        <div class="cambio" id="cambio"></div>
     </div>
     <script src="js/conversor.js"></script>
 </body>
+
 </html>

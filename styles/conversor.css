@@ -9,28 +9,17 @@
 * {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-
-}
-.bvolver {
-    color: white;
-    border-radius: 1rem;
-    font-size: 1em;
-    padding: 0;
-    border: 0;
-    margin: 1px auto;
-    padding: 25px;
-    width: 555px;
-    max-width: 800px;
-    border-radius: 10px;
 }
 .volver {
+    margin-top: 20px;
+}
+.volver a {
     padding: 10px;
     text-decoration: none;
     color: black;
     font-weight: bold;
     background-color: rgb(201, 201, 201);
     border-radius: 5px;
-    margin-bottom: 2em;
     text-align: left;
 }
 body {
@@ -48,7 +37,7 @@ body {
 .GContainer {
     background-color: rgb(245, 245, 245);
     padding: 40px;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 100px;
     max-width: 810px;
     border-radius: 15px;
@@ -56,17 +45,13 @@ body {
 
 }
 h1{
-    color: var(--primary);
-    margin-bottom: 2rem;
-    margin-top: 15px;
-    font-size: 2.5rem;
-    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+
 }
 
 p {
-    text-align: center;
     font-size: 1.15em;
-
 }
 
 .tazaDeCambio {
@@ -77,11 +62,14 @@ p {
 
 
 .btntaza {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     background-color: var(--secondary);
     cursor: pointer;
     border-radius: 1rem;
-    font-size: 1em;
+    font-size: 1.2rem;
     padding: 5px 12px;
     border: 0;
     margin: 25px auto;
@@ -90,6 +78,11 @@ p {
     max-width: 800px;
     border-radius: 10px;
 
+}
+
+.btntaza svg {
+    width: 1.2rem;
+    margin-left: 5px;
 }
 
 .moneda {
