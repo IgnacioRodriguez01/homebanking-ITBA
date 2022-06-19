@@ -70,6 +70,74 @@
     margin-right: 0.5rem;
 }
 
+/*********************** Nicovera/Ignacior Precios ***********************/
+
+.dolar {
+    overflow-x: hidden;
+}
+
+.dolar ul {
+    position: relative;
+    margin: 0;
+    width: 1000px;
+    padding: 5px;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    animation: slide 25s linear infinite;
+}
+
+.dolar li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 50px;
+}
+
+.dolar svg {
+    width: 25px;
+    height: 25px;
+}
+
+.dolar-nombre{
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.precios{
+    font-size: 0.85rem;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dolar-v, .dolar-c {
+
+}
+
+#oficial, #bolsa svg {
+    fill: #629658;
+}
+#blue svg {
+    fill: #04578b;
+}
+#liqui svg {
+    fill: #b2af5b;
+}
+
+@keyframes slide {
+    0% {
+      -webkit-transform: translate(100%);
+              transform: translate(100%);
+    }
+    100% {
+      -webkit-transform: translate(-100%);
+              transform: translate(-100%);
+    }
+}
+
 /*********************** Dgamez Cuentas ***********************/
 
 .cuentas * {
