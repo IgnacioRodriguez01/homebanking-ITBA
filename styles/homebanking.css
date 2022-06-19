@@ -54,7 +54,7 @@
 }
 
 .cant-dinero {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .bloque-cuenta {
@@ -129,8 +129,8 @@
 
 @keyframes slide {
     0% {
-      -webkit-transform: translate(100%);
-              transform: translate(100%);
+      -webkit-transform: translate(120%);
+              transform: translate(120%);
     }
     100% {
       -webkit-transform: translate(-100%);
