@@ -1,8 +1,5 @@
 import csv, sys, datetime
 
-date = datetime.datetime.now()
-date = str(date.strftime("%Y-%m-%d_%H-%M-%S"))
-
 POS_NROCHEQUE = 0
 POS_CODIGOBANCO = 1
 POS_CODIGOSUCURSAL = 2
@@ -63,15 +60,31 @@ with open(archivo) as File:
 
     #Filtrados adicionales
     resultado = list(filter(lambda cheque: cheque[POS_TIPO] == tipo, resultado))
+    
     if estado != '':
         resultado = list(filter(lambda cheque: cheque[POS_ESTADO] == estado, resultado))
-    
+    if fecha != '':
+        #Slicing de las fechas en tuplas (año, mes, dia)
+        fechaInicial = int(fecha[:10][6:]), int(fecha[:10][3:5]), int(fecha[:10][:2])
+        fechaFinal = int(fecha[11:][6:]), int(fecha[11:][3:5]), int(fecha[11:][:2])
+        
+        #Unpacking y conversión a timestamp
+        y, m, d = fechaInicial
+        timestampInicial = datetime.datetime.timestamp(datetime.datetime(y, m, d))
+        y, m, d = fechaFinal
+        timestampFinal = datetime.datetime.timestamp(datetime.datetime(y, m, d))
+
+        #Filtrado según fecha
+        resultado = list(filter(lambda cheque: timestampInicial <= float(cheque[POS_FECHAORIGEN]) <= timestampFinal, resultado))
+
     #Salida
     if salida == 'PANTALLA':
         print(resultado)
 
     elif salida == 'CSV':
-        with open((dni + '_' + date), 'w+', newline='') as NewFile:  
+        timestampActual = datetime.datetime.timestamp(datetime.datetime.now())
+
+        with open((dni + '_' + str(round(timestampActual))), 'w+', newline='') as NewFile:  
             NewFile = csv.writer(NewFile, lineterminator='\n')
             if len(resultado) > 0:
                 NewFile.writerow(["FechaPago","FechaOrigen","Valor","NumeroCuentaOrigen"])
