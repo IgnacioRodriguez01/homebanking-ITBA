@@ -25,43 +25,58 @@ INPUTS_FECHA = 6
 estado = ''
 fecha = ''
 
+#Lectura de parámetros
 for i in range(0,len(sys.argv)):
     match i:
         case 1:
-            archivo = sys.argv[1]
+            archivo = sys.argv[INPUTS_CSV]
         case 2:    
-            dni = sys.argv[2]
+            dni = sys.argv[INPUTS_DNI]
         case 3:    
-            salida = sys.argv[3]
+            salida = sys.argv[INPUTS_SALIDA]
         case 4:    
-            tipo = sys.argv[4]
+            tipo = sys.argv[INPUTS_TIPO]
         case 5:    
-            estado = sys.argv[5] #opcional
+            estado = sys.argv[INPUTS_ESTADO] #Opcional
         case 6:    
-            fecha = sys.argv[6] #opcional  
+            fecha = sys.argv[INPUTS_FECHA] #Opcional  
 
-
-with open(archivo, newline='') as File:  
+with open(archivo) as File:
+    #Lectura del CSV
     reader = csv.reader(File)
     cheques = list(reader)
-    columnas = cheques.pop(0)
 
     resultado = list(filter(lambda cheque: cheque[POS_DNI] == dni, cheques))
+
+    #Comprobación de nro de cheques
+    if len(resultado) > 0:
+        cuenta = resultado[0][POS_NUMEROCUENTAORIGEN]
+        listaNroCheques = []
+        for cheque in cheques:
+            if cheque[POS_NUMEROCUENTAORIGEN] == cuenta:
+                listaNroCheques.append(cheque[POS_NROCHEQUE])
+        setNroCheques = set(listaNroCheques)
+
+        if len(listaNroCheques) != len(setNroCheques):
+            print('Error! En la cuenta perteneciente a este DNI existen cheques repetidos')
+            sys.exit()
+
+    #Filtrados adicionales
     resultado = list(filter(lambda cheque: cheque[POS_TIPO] == tipo, resultado))
     if estado != '':
         resultado = list(filter(lambda cheque: cheque[POS_ESTADO] == estado, resultado))
-
-    #SALIDA
+    
+    #Salida
     if salida == 'PANTALLA':
         print(resultado)
 
     elif salida == 'CSV':
-        print(resultado)
-        with open((dni + '' + date), 'w+') as NewFile:  
-            NewFile = csv.writer(NewFile)
+        with open((dni + '_' + date), 'w+', newline='') as NewFile:  
+            NewFile = csv.writer(NewFile, lineterminator='\n')
             if len(resultado) > 0:
-                NewFile.writerow(columnas)
-                NewFile.writerows(resultado)
+                NewFile.writerow(["FechaPago","FechaOrigen","Valor","NumeroCuentaOrigen"])
+                for cheque in resultado:
+                    NewFile.writerow([cheque[POS_FECHAPAGO],cheque[POS_FECHAORIGEN],cheque[POS_VALOR],cheque[POS_NUMEROCUENTAORIGEN]])
             else:
-                NewFile.writerow('-')
+                NewFile.writerow(["No hay resultados."])
                 
