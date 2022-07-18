@@ -1,7 +1,7 @@
 class Direccion:
-    def __init__(self, **kwargs):
-        self.calle = kwargs.get('calle')
-        self.numero = kwargs.get('numero')
-        self.ciudad = kwargs.get('ciudad')
-        self.provincia = kwargs.get('provincias')
-        self.pais = kwargs.get('pais')
+    def __init__(self, datos):
+        self.calle = datos.get('calle')
+        self.numero = datos.get('dirnumero')
+        self.ciudad = datos.get('ciudad')
+        self.provincia = datos.get('provincia')
+        self.pais = datos.get('pais')

@@ -6,21 +6,22 @@
 # La comisión por transferencias hechas es de 1%.
 # No puede recibir transferencias mayores a $150.000 sin previo aviso.
 
-import Cliente
-from main import data
+from . import Cliente
 
-class ClienteClassic(Cliente):
+class ClienteClassic(Cliente.Cliente):
     def __init__(self, **kwargs):
-        maxRetiroDiario= 10000
-        comisionTransfer = 0.01
-        maximoTransferRecibida = 150000
+        self.maxNegativoCorriente = 0
+        self.maxRetiroDiario= 10000
+        self.comisionTransfer = 0.01
+        self.maximoTransferRecibida = 150000
+        self.cuentas = ['ahorro_pesos']
         super().__init__(**kwargs)
     
-    def puede_crear_chequera():
-        return False
+    def puede_crear_chequera(self, datos):
+        return 'No puede tener chequeras.'
 
-    def puede_comprar_dolar():
-        return False
+    def puede_comprar_dolar(self):
+        return 'No puede comprar dólares.'
 
-    def puede_crear_tarjeta_credito():
-        return False
+    def puede_crear_tarjeta_credito(self, datos):
+        return 'No puede tener tarjetas de crédito.'

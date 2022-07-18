@@ -6,27 +6,28 @@
 # No se aplican comisiones a las transferencias.
 # Pueden recibir transferencias por cualquier monto sin previa autorización
 
-import Cliente
-from main import data
+from . import Cliente
 
-
-class ClienteGold(Cliente):
+class ClienteBlack(Cliente.Cliente):
     def __init__(self, **kwargs):
-        maxNegativoDiario = -10000
-        maxRetiroDiario= 100000
+        self.maxNegativoCorriente = 10000
+        self.maxRetiroDiario= 100000
+        self.comisionTransfer = 0
+        self.maximoTransferRecibida = float('inf')
+        self.cuentas = ['ahorro_pesos', 'ahorro_dolar', 'corriente'] 
         super().__init__(**kwargs)
     
-    def puede_crear_chequera():
-        if data.get['totalChequerasActualmente'] > 2:
-            return False
-        else:
+    def puede_crear_chequera(self, datos):
+        if datos['totalChequerasActualmente'] < 2:
             return True
+        else:
+            return 'No puede hacer tener más de dos chequeras.'
 
-    def puede_comprar_dolar():
+    def puede_comprar_dolar(self):
         return True
     
-    def puede_crear_tarjeta_credito():
-        if data.get['totalTarjetasDeCreditoActualmente'] > 5:
-            return False
-        else:
+    def puede_crear_tarjeta_credito(self, datos):
+        if datos['totalTarjetasDeCreditoActualmente'] < 5:
             return True
+        else:
+            return 'No puede hacer tener más de cinco tarjetas de crédito.'
