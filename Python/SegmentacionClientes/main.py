@@ -1,21 +1,23 @@
 import json, sys, webbrowser
 
-from clases.Cliente import Cliente
+from modulos.calculos import analizarTransaccion
 
+from clases.Cliente import Cliente
 from clases.Classic import ClienteClassic
 from clases.Gold import ClienteGold
 from clases.Black import ClienteBlack
 
-with open('ejemplos_json/eventos_gold.json') as archivo:
+ARCHIVO_JSON = 'ejemplos_json/eventos_black.json'
+# Apertura del JSON
+
+with open(ARCHIVO_JSON) as archivo:
     try:
         data = json.load(archivo)    
     except:
         print('Archivo JSON incorrecto.')
         sys.exit()
-    
-print(data['direccion']['numero'])
 
-#unpacking de data, y pasar como argumentos a cliente.
+# Instanciación de la clase Cliente
 
 nuevoCliente = Cliente(
     nombre=data['nombre'],
@@ -29,7 +31,7 @@ nuevoCliente = Cliente(
     pais= data['direccion']['pais']
 )
 
-print(nuevoCliente.direccion.pais)
+#Instanciación de la clase Black, Gold o Classic
 
 match data['tipo']:
     case 'CLASSIC':
@@ -39,71 +41,29 @@ match data['tipo']:
     case 'BLACK':
         clienteTipo = ClienteBlack()
 
+# Creación del archivo HTML
+
 with open('index.html', 'w') as html_file:
     
     html_file.writelines('<html>')
     html_file.writelines('<h1> Reporte de transacciones </h1>')
-    html_content = f'<p> Nombre: {clienteTipo.nombre} {clienteTipo.apellido} Nro. Cliente: {clienteTipo.numero} DNI: {clienteTipo.dni}</p>'
+    html_content = f'<p> Nombre: {nuevoCliente.nombre} {nuevoCliente.apellido} Nro. Cliente: {nuevoCliente.numero} DNI: {nuevoCliente.dni}</p>'
     html_file.writelines(html_content)
-    html_content = f'<p> Dirección: {clienteTipo.direccion.calle} {clienteTipo.direccion.numero}, {clienteTipo.direccion.ciudad}, {clienteTipo.direccion.provincia}, {clienteTipo.direccion.pais}</p>'
+    html_content = f'<p> Dirección: {nuevoCliente.direccion.calle} {nuevoCliente.direccion.numero}, {nuevoCliente.direccion.ciudad}, {nuevoCliente.direccion.provincia}, {nuevoCliente.direccion.pais}</p>'
     html_file.writelines(html_content)
 
-    
     for transaccion in data['transacciones']:
-    
-        match transaccion['tipo']:
-            case 'ALTA_TARJETA_CREDITO':
-                if (clienteTipo.puede_crear_tarjeta_credito(transaccion) == True):
-                    razon = 'SIN_ERROR'
-                else:
-                    razon = clienteTipo.puede_crear_tarjeta_credito(transaccion)
-                    
-            case 'ALTA_CHEQUERA':
-                if (clienteTipo.puede_crear_chequera(transaccion) == True):
-                    razon = 'SIN_ERROR'
-                else:
-                    razon = clienteTipo.puede_crear_chequera(transaccion)
+        razon = analizarTransaccion(transaccion, clienteTipo)
 
-            case 'COMPRA_DOLAR':
-                if (clienteTipo.puede_comprar_dolar() == True):
-                    if transaccion['monto'] > transaccion['cupoDiarioRestante']:
-                        razon = 'Superaste el cupo diario permitido'
-                    elif transaccion['monto'] > (transaccion['saldoEnCuenta'] + clienteTipo.maxNegativoCorriente):
-                        razon = 'Saldo insuficiente'
-                    else:
-                        razon = 'SIN_ERROR'
-                else:
-                    razon = clienteTipo.puede_comprar_dolar()
-            
-            case 'RETIRO_EFECTIVO_CAJERO_AUTOMATICO':
-                if transaccion['monto'] > transaccion['cupoDiarioRestante']:
-                    razon = 'Superaste el cupo diario permitido'
-                elif transaccion['monto'] > (transaccion['saldoEnCuenta'] + clienteTipo.maxNegativoCorriente):
-                    razon = 'Saldo insuficiente'
-                else:
-                    razon = 'SIN_ERROR'
-            
-            case 'TRANSFERENCIA_ENVIADA':
-                montoComision = transaccion['monto'] + clienteTipo.comisionTransfer * transaccion['monto']
-                
-                if montoComision > transaccion['cupoDiarioRestante']:
-                    razon = 'Superaste el cupo diario permitido'
-                elif montoComision > (transaccion['saldoEnCuenta'] + clienteTipo.maxNegativoCorriente):
-                    razon = 'Saldo insuficiente'
-                else:
-                    razon = 'SIN_ERROR'
-            
-            case 'TRANSFERENCIA_RECIBIDA':
-                if transaccion['monto'] > clienteTipo.maximoTransferRecibida:
-                    razon = 'El monto de la transferencia supera el límite permitido'
-                else:
-                    razon = 'SIN_ERROR'
-        variable = transaccion['numero']
-        print(transaccion['tipo'], transaccion['estado'], razon)
-        html_content = f'<p> {variable} {razon} </p>'
-        html_file.writelines(html_content)
+        # print(transaccion['tipo'], transaccion['estado'], razon)
+        html_file.writelines(f'<h3> Transaccion {transaccion["numero"]}</h3>')
+        html_file.writelines(f'<p> Fecha: {transaccion["fecha"]}</p>')
+        html_file.writelines(f'<p> Tipo: {transaccion["tipo"]}</p>')
+        html_file.writelines(f'<p> Monto: {transaccion["monto"]}</p>')
+        html_file.writelines(f'<p> Estado: {transaccion["estado"]}</p>')
+        if razon != 'SIN_ERROR':
+            html_file.writelines(f'<p> Razón: {razon}</p>')
 
-    
     html_file.writelines('</html>')
     print('Se ha creado un archivo .HTML con el reporte')
 
