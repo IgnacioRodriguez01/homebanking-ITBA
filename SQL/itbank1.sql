@@ -40,7 +40,7 @@ CREATE TABLE tarjetas(
 /* Aquí agregar datos desde data-tarjetas */
 
 CREATE TABLE direcciones(
-	direccion_id INTEGER NOT NULL PRIMARY KEY,
+	direccion_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	cliente_id INTEGER,
 	empleado_id INTEGER,
 	sucursal_id INTEGER UNIQUE,
