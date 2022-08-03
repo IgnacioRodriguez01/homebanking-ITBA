@@ -54,3 +54,29 @@ FROM (
 	FROM cliente
 	WHERE age < 50
 );
+
+/** Primeras 5 cuentas con +8k **/
+SELECT account_id, 
+	CAST(replace(balance, substr(balance, -2, 2), '.'||substr(balance, -2, 2)) AS DECIMAL) AS balance_float
+FROM cuenta
+WHERE balance_float > 8000
+LIMIT 5;
+
+/** Prestamos de abril, junio y agosto **/
+SELECT *
+FROM prestamo
+WHERE strftime('%m', loan_date) IN ('04','06','08')
+ORDER BY loan_total DESC;
+
+/** Importe total segun tipo de prestamo **/
+SELECT loan_type, ROUND(SUM(CAST(replace(loan_total, substr(loan_total, -2, 2), '.'||substr(loan_total, -2, 2)) AS DECIMAL)),2) AS loan_total_accu
+FROM prestamo
+WHERE loan_type = 'PERSONAL'
+UNION
+SELECT loan_type, ROUND(SUM(CAST(replace(loan_total, substr(loan_total, -2, 2), '.'||substr(loan_total, -2, 2)) AS DECIMAL)),2) AS loan_total_accu
+FROM prestamo
+WHERE loan_type = 'PRENDARIO'
+UNION
+SELECT loan_type, ROUND(SUM(CAST(replace(loan_total, substr(loan_total, -2, 2), '.'||substr(loan_total, -2, 2)) AS DECIMAL)),2) AS loan_total_accu
+FROM prestamo
+WHERE loan_type = 'HIPOTECARIO';
