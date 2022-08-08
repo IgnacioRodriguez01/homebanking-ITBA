@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+    <link rel="stylesheet" href="sidebar.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+        <i class='bx bxs-bank'></i>
+      <span class="logo_name">ITBANK</span>
+    </div>
+    <ul class="nav-links">
+        <li class="search-box">
+            <i class='bx bx-search icon'></i>
+            <input type="text" placeholder="Buscar...">
+        </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Noticias</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Noticias</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+            <i class='bx bx-bell' ></i>
+             <!--En caso de tener notificaciones colocar <i class='bx bxs-bell-ring' ></i>-->
+          <span class="link_name">Notificaciones</span>
+        
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Notificaciones</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Analítica</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analítica</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Gastos</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Gastos</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-wallet-alt' ></i>
+            <span class="link_name">Cartera</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Cartera</a></li>
+          <li><a href="#">Corriente</a></li>
+          <li><a href="#">Ahorro</a></li>
+          <li><a href="#">Chequera</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+            <i class='bx bx-credit-card'></i>
+          <span class="link_name">Tarjetas</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Tarjetas</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+            <i class='bx bx-dollar-circle' ></i>
+          <span class="link_name">Simulador</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Simulador</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-history'></i>
+          <span class="link_name">Historial</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Historial</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+            <i class='bx bx-navigation'></i>
+          <span class="link_name">Sucursales</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Sucursales</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Configuración</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Configuración</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Usuario</div>
+        <div class="job">Tipo Cliente</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+    </div>
+  </section>
+  <script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bxs-bank");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+  
+</body>
+</html>
