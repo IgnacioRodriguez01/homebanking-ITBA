@@ -43,7 +43,13 @@ INSTALLED_APPS = [
     'Cuentas.apps.CuentasConfig',
     'Prestamos.apps.PrestamosConfig',
     'Tarjetas.apps.TarjetasConfig',
+    'registration.apps.RegistrationConfig'
 ]
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/homebanking'
+
+LOGOUT_REDIRECT_URL = '/accounts/login'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -5,3 +5,4 @@ from django.template import loader
 
 def login(request):
     return render(request, 'Login/index.html')
+    

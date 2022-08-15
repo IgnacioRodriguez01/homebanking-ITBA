@@ -1,152 +1,29 @@
 {% load static %}
-
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- <base href="/homebanking-ITBA/">  --><!-- URL base para Github Pages -->
-		
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-		
-        <link rel="stylesheet" href="{% static 'Login/css/index.css' %}">
-		<title>ITBANK - Login</title>
-	</head>
-	<body>
-
-        <!-- Ignacior Login -->
-		<nav>
-			<a class="home text-decoration-none">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-					<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-				</svg>
-			</a>
-		</nav>
-
-		<!-- Register Modal -->
-		
-		<div class="modal fade" id="modalRegister" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRegisterLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-				<h5 class="modal-title" id="modalRegisterLabel">Regístrate en ITBANK</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body d-flex flex-column align-items-center justify-content-center">
-					<form id="formRegister" class="w-75">
-						<div id="docRegister" class="input-group mb-3 doc">
-							<input type="text" class="form-control" placeholder="Número de documento">
-							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
-							<ul class="dropdown-menu dropdown-menu-end">
-								<li><a data-id="DNI" class="dropdown-item">DNI</a></li>
-								<li><a data-id="LC" class="dropdown-item">Libreta Cívica</a></li>
-								<li><a data-id="LE" class="dropdown-item">Libreta de Enrolamiento</a></li>
-								<li><a data-id="CI" class="dropdown-item">Cédula de Identidad</a></li>
-								<li><a data-id="PP" class="dropdown-item">Pasaporte</a></li>
-							</ul>
-						</div>
-						<div class="input-group mb-3">
-							<input type="text" id="usuarioRegister" class="form-control" placeholder="Usuario">
-						</div>
-						<div class="input-group mb-3">
-							<input type="text" id="emailRegister" class="form-control" placeholder="Email">
-						</div>
-						<div class="input-group mb-3">
-							<input id="claveRegister" type="password" class="form-control" placeholder="Clave ITBANK" aria-describedby="key">
-						</div>
-						<div class="input-group mb-3">
-							<input id="clave2Register" type="password" class="form-control" placeholder="Repite tu clave ITBANK" aria-describedby="key">						</div>
-					</form>
-					<div id="mensajeRegister" class="mt"></div>
-				</div>
-				<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-				<button id="submitRegister" type="button" class="btn btn-primary">Registrarse</button>
-				</div>
-			</div>
-			</div>
-		</div>
-  
-
-		<!-- Password Modal -->
-
-		<div class="modal fade" id="modalPassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPassword" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-				<h5 class="modal-title" id="modalPasswordLabel">Recupera tu contraseña</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body d-flex flex-column align-items-center justify-content-center">
-					<p>Ingresa tu email para enviar un correo de confirmación:</p>
-					<form id="formPassword" class="w-75">
-						<div class="input-group mb-3">
-							<input type="text" id="emailPassword" class="form-control" placeholder="Email">
-						</div>
-					</form>
-					<div id="mensajePassword" class="mt"></div>
-				</div>
-				<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-				<button id="submitPassword" type="button" class="btn btn-primary">Enviar</button>
-				</div>
-			</div>
-			</div>
-		</div>
-
-		<!-- Main Login -->
-
-		<div class="container vh-100 d-flex">
-			<div class="row">
-				<div class="itbank-logo col d-flex flex-column justify-content-center align-items-center">
-					<img class="mw-100" src="{% static 'Login/images/itbank.png' %}" alt="">
-				</div>
-				<div class="col-5 d-flex flex-column justify-content-center align-items-center">
-					<h2 class="row mb-5 text-center">Te damos la bienvenida</h2>
-					<form id="formLogin" class="w-75">
-						<div id="docLogin" class="input-group mb-3 doc">
-							<input type="text" class="form-control" placeholder="Número de documento">
-							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
-							<ul class="dropdown-menu dropdown-menu-end">
-								<li><a data-id="DNI" class="dropdown-item">DNI</a></li>
-								<!-- 
-                                <li><a data-id="LC" class="dropdown-item">Libreta Cívica</a></li>
-								<li><a data-id="LE" class="dropdown-item">Libreta de Enrolamiento</a></li>
-								<li><a data-id="CI" class="dropdown-item">Cédula de Identidad</a></li>
-								<li><a data-id="PP" class="dropdown-item">Pasaporte</a></li>
-                                Quitada esta función por irrelevancia en la base de datos-->
-							</ul>
-						</div>
-						<div class="input-group mb-3">
-							<input type="text" id="usuarioLogin" class="form-control" placeholder="Usuario">
-						</div>
-						<div class="input-group mb-3">
-							<input id="claveLogin" type="password" class="form-control" placeholder="Clave ITBANK" aria-describedby="key">
-							<button id="clave-toggleLogin" class="btn btn-outline-secondary d-flex align-items-center" type="button" id="key">
-								<svg xmlns="http://www.w3.org/2000/svg" class="eye" viewBox="0 0 20 20" fill="currentColor">
-									<path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clip-rule="evenodd" />
-									<path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z" />
-								</svg>
-							</button>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="recordarme">
-							<label class="form-check-label" for="recordarme">
-							Recordarme
-							</label>
-						</div>
-						<button type="button" id="submitLogin" class="btn btn-outline-primary mt-3">Ingresar</button>
-					</form>
-					<div id="mensajeLogin" class="mt"></div>
-					<a class="mt-5 fs-6 text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalPassword">Olvidé mi contraseña</a>
-					<p class="mt-2 fs-6">¿No tenés un usuario? <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalRegister">Registrate</a></p>
-				</div>
-			</div>
-		</div>
-	</body>
-	<script src="{% static 'Login/js/login.js' %}"></script>
-</html>
-
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<style>.errorlist{color:red;}</style>
+<main role="main">
+<div class="container">
+<div class="row mt-3">
+<div class="col-md-9 mx-auto mb-5">
+<form action="{% url 'login' %}" method="post">{% csrf_token %}
+<h3 class="mb-4">Iniciar sesión</h3>
+{% if form.errors  %}
+<p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+{% endif %}
+<p>
+<input type="text" name="username" autofocus maxlength="254" required
+id="id_username" class="form-control" placeholder="Nombre de usuario"/>
+</p>
+<p>
+<input type="password" name="password" required
+id="id_password" class="form-control" placeholder="Contraseña"/>
+</p>
+<p><input type="submit" class="btn btn-primary btn-block"
+value="Acceder"></p>
+</form>
+</div>
+</div>
+</div>
+</main>
+{% endblock %}
