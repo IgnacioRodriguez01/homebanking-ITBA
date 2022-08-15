@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Homebanking.apps.HomebankingConfig',
     'Login.apps.LoginConfig',
+    'Clientes.apps.ClientesConfig',
+    'Cuentas.apps.CuentasConfig',
+    'Prestamos.apps.PrestamosConfig',
+    'Tarjetas.apps.TarjetasConfig',
 ]
 
 MIDDLEWARE = [
