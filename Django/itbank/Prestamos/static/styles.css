@@ -1,0 +1,21 @@
+body {
+    background: rgb(2,86,138);
+    background: linear-gradient(90deg, rgba(2,86,138,1) 0%, rgba(21,62,87,1) 100%);
+}
+
+.titulo {
+    color: white;
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 4em;
+
+}
+.container {
+    background: white;
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 2em;
+    justify-content: center;
+}
+
