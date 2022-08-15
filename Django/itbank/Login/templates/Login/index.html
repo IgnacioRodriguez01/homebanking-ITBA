@@ -1,3 +1,6 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 		
-        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="{% static 'Login/css/index.css' %}">
 		<title>ITBANK - Login</title>
 	</head>
 	<body>
@@ -99,7 +102,7 @@
 		<div class="container vh-100 d-flex">
 			<div class="row">
 				<div class="itbank-logo col d-flex flex-column justify-content-center align-items-center">
-					<img class="mw-100" src="images/itbank.png" alt="">
+					<img class="mw-100" src="{% static 'Login/images/itbank.png' %}" alt="">
 				</div>
 				<div class="col-5 d-flex flex-column justify-content-center align-items-center">
 					<h2 class="row mb-5 text-center">Te damos la bienvenida</h2>
@@ -109,10 +112,12 @@
 							<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo</button>
 							<ul class="dropdown-menu dropdown-menu-end">
 								<li><a data-id="DNI" class="dropdown-item">DNI</a></li>
-								<li><a data-id="LC" class="dropdown-item">Libreta Cívica</a></li>
+								<!-- 
+                                <li><a data-id="LC" class="dropdown-item">Libreta Cívica</a></li>
 								<li><a data-id="LE" class="dropdown-item">Libreta de Enrolamiento</a></li>
 								<li><a data-id="CI" class="dropdown-item">Cédula de Identidad</a></li>
 								<li><a data-id="PP" class="dropdown-item">Pasaporte</a></li>
+                                Quitada esta función por irrelevancia en la base de datos-->
 							</ul>
 						</div>
 						<div class="input-group mb-3">
@@ -142,6 +147,6 @@
 			</div>
 		</div>
 	</body>
-	<script src="js/login.js"></script>
+	<script src="{% static 'Login/js/login.js' %}"></script>
 </html>
 

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tareas</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/gastos.css">
+    <link rel="stylesheet" href="{% static 'Homebanking/css/gastos.css' %}">
     
-    <script src="js/gastos.js" type="text/javascript" defer></script>
+    <script src="{% static 'Homebanking/js/gastos.js' %}" type="text/javascript" defer></script>
 </head>
 <body>
     <div class="list roundBorder">
-        <a class="volver" href="homebanking.html">Volver</a>
+        <a class="volver" href="{% url 'homebanking' %}">Volver</a>
         <h1>Lista de gastos</h1>
         <div class="date">
             <div class="dateRight">
