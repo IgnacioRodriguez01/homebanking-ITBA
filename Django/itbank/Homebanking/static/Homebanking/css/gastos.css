@@ -19,9 +19,47 @@ body {
     background-color: var(--diabled);
 }
 
+/*********************** Vickyd Header ***********************/
+
+.logo {
+    max-width: 150px;
+}
+
+#navbarText ul{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    font-weight: bold;
+}
+
+.form-check {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    margin: 0px 10px 0px 10px;
+}
+
+.nav-icon {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+/*********************** Fin Vickyd Header ***********************/
+
 h1 {
     margin-bottom: 2rem;
     margin-top: 15px;
+    font-weight: bold;
 }
 
 .volver {
@@ -115,9 +153,12 @@ input:focus {
 .addTaskButton,
 .orderButton {
     border: none;
-    font-weight: bold;
+    font-weight: normal;
     cursor: pointer;
     border-radius: 15px;
+    font-size: 13px;
+    padding: 0 10px;
+    width: auto;
 }
 
 .addTaskButton {
@@ -126,6 +167,7 @@ input:focus {
     font-size: 18px;
     background-color: var(--diabled);
     border-radius: 15px;
+    padding: 0 10px;
 }
 
 .orderButton {
@@ -212,4 +254,12 @@ section:last-child{
 section:last-child .val,
 section:last-child .lbl{
     color: #004e92;
+}
+
+.footer-cont {
+    max-width:none;
+    margin-bottom: 0;
+}
+.footer-cont section.mb-4 {
+    background-color: white;
 }

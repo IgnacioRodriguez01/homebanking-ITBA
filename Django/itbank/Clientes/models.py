@@ -47,7 +47,7 @@ class Direcciones(models.Model):
     direccion_id = models.IntegerField(primary_key=True)
     cliente_id = models.ForeignKey('Clientes.Cliente', on_delete=models.CASCADE, blank=True, null=True, db_column='cliente_id')
     empleado_id = models.ForeignKey('Clientes.Empleado', on_delete=models.CASCADE, blank=True, null=True, db_column='empleado_id')
-    sucursal_id = models.ForeignKey('Clientes.Sucursal', on_delete=models.CASCADE, unique=True, blank=True, null=True, db_column='sucursal_id') #onetoone
+    sucursal_id = models.OneToOneField('Clientes.Sucursal', on_delete=models.CASCADE, blank=True, null=True, db_column='sucursal_id') #onetoone
     calle = models.TextField()
     numero = models.IntegerField()
     ciudad = models.TextField()

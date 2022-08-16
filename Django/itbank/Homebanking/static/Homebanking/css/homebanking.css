@@ -46,13 +46,9 @@
     width: 100%;
     max-width: none;
 }
-  
-.align-items-center {
+.welcome-back .row {
     height: 10rem;
-    margin: 0;
-    width: 100%;
 }
-
 .cant-dinero {
     font-size: 1.2rem;
 }

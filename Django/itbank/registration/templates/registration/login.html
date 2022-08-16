@@ -136,12 +136,6 @@
 								</svg>
 							</button>
 						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="recordarme">
-							<label class="form-check-label" for="recordarme">
-							Recordarme
-							</label>
-						</div>
 						<input type="submit" value="Ingresar" id="submitLogin" class="btn btn-outline-primary mt-3">
 						<input type="hidden" name="next" value="{{ next }}">
 					</form>
@@ -150,8 +144,8 @@
 						<div class="alert bg-danger">Usuario o contraseña incorrectos.</div>
 						{% endif %}
 					</div>
-					<a class="mt-5 fs-6 text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalPassword">Olvidé mi contraseña</a>
-					<p class="mt-2 fs-6">¿No tenés un usuario? <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalRegister">Registrate</a></p>
+					<a class="mt-5 fs-6 text-decoration-none" href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
+					<p class="mt-2 fs-6">¿No tenés un usuario? <a class="text-decoration-none" href="{% url 'register' %}">Registrate</a></p>
 				</div>
 			</div>
 		</div>
