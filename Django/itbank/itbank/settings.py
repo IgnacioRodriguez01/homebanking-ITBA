@@ -51,6 +51,8 @@ LOGIN_REDIRECT_URL = '/homebanking'
 
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -89,8 +91,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'itbank.sqlite3',
-        'USER': 'nacho',
-        'PASSWORD': 'nacho',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }
