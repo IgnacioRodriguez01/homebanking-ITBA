@@ -13,5 +13,5 @@
 - **Super:** 
   - *User: agustin, Pass: 1234*
   - *User: nacho, Pass: 1234*
-- **Genérico:** 
-  - *User: Gabriel, Pass: 1234*
+- **Cliente genérico:** 
+  - *User: Declan, Pass: 1234*

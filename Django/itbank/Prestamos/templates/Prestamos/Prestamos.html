@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITBANK - Prestamos</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'Prestamos/css/styles.css' %}"/>
+</head>
+<body>
+    <h1 class="titulo">Prestamos</h1>
+    <div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                {{form}}
+                <th><label for="id_fecha">Fecha de inicio:</label></th>
+                <td>
+                    <input type="date" name="fecha" required="" id="id_fecha">
+                </td>
+              </tr>
+        </table>
+        <input type="submit" value="Enviar"/>
+    </form>
+    </div>
+</body>
+{{request.POST}}
+
+<!-- esto tambien es para que muestre los datos en pantalla-->
+{% if 'ok' in request.GET %}
+<p> ok el form funciono bien ahi</p>
+{% endif %}
+</body>
+</html>
