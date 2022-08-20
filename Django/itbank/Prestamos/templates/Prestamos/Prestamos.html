@@ -2,38 +2,105 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITBANK - Prestamos</title>
-    
-    <link rel="stylesheet" type="text/css" href="{% static 'Prestamos/css/styles.css' %}"/>
-</head>
-<body>
-    <h1 class="titulo">Prestamos</h1>
-    <div class="container">
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-            <tr>
-                {{form}}
-                <th><label for="id_fecha">Fecha de inicio:</label></th>
-                <td>
-                    <input type="date" name="fecha" required="" id="id_fecha">
-                </td>
-              </tr>
-        </table>
-        <input type="submit" value="Enviar"/>
-    </form>
-    </div>
-</body>
-{{request.POST}}
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ITBANK - Prestamos</title>
 
-<!-- esto tambien es para que muestre los datos en pantalla-->
-{% if 'ok' in request.GET %}
-<p> ok el form funciono bien ahi</p>
-{% endif %}
-</body>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'Prestamos/css/styles.css' %}"/>
+    </head>
+    <body>
+        <header class="navbar-section">
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'homebanking' %}">
+                    <img class="logo" src="{% static 'Homebanking/images/itbank.png' %}" alt="ITBANK">
+                    </a>
+                
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <img class="nav-icon" src="{% static 'Homebanking/images/inicio.png' %}">
+                                <a class="nav-link active" aria-current="page" href="{% url 'homebanking' %}">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <img class="nav-icon" src="{% static 'Homebanking/images/notifs.png' %}">
+                                <a class="nav-link" href="{% url 'homebanking' %}">Notificaciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <img class="nav-icon" src="{% static 'Homebanking/images/ayuda.png' %}">
+                                <a class="nav-link" href="{% url 'homebanking' %}">Ayuda</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h1 class="titulo">Pedí un prestamo en ITBANK</h1>
+            <div class="prestamo-wrap">
+                <form action="" method="post" class="prestamo-form">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input class="btn btn-primary" type="submit" value="Enviar"/>
+                </form>
+
+                <div class="error-container">
+                    {% if 'error_empty' in request.GET %}
+                        <span class="error">Ingrese un monto mayor a $0</span>
+                    {% endif %}
+                    {% if 'error_auth' in request.GET %}
+                        <h3>Solicitud rechazada.</h3>
+                        <span class="error">Su usuario no está registrado en la base de datos.</span>
+                    {% endif %}
+                    {% if 'error_monto' in request.GET %}
+                        <h3>Solicitud rechazada.</h3>
+                        <span class="error">Su nivel {{ tipoCliente }} no le permite esta transacción.</span>
+                    {% endif %}
+                    {% if 'success' in request.GET %}
+                        <h3>Solicitud aprobada.</h3>
+                        <span class="success">Su préstamo ha sido registrado en su cuenta</span>
+                        <span class="success">{{ cuentaIban }}</span>
+                    {% endif %}
+                </div>           
+            </div>
+        </main>
+
+        <footer class="bg-light text-center">
+            <div class="footer-cont container p-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{% static 'Homebanking/images/itbank.png' %}" alt="itbank" width="200px" height="50px" >
+                    </div>
+                    <div class="col-md-6">
+                        <section class="mb-4">
+                            <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="#!" role="button"><i class="bi bi-facebook"></i></a>
+                            <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i class="bi bi-twitter"></i></a>
+                            <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="#!" role="button"><i class="bi bi-google"></i></a>
+                            <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="#!" role="button"><i class="bi bi-instagram"></i></a>
+                            <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca" href="#!" role="button"><i class="bi bi-linkedin"></i></a>
+                        </section>
+                        <!-- Section: Social media -->  
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background: linear-gradient(90deg, rgba(2,86,138,1) 0%, rgba(111,157,185,1) 100%); color: white">
+                © 2022 Copyright: ITBANK
+                <a href="{% url 'homebanking' %}" style="color: lightblue"> itbank.com</a>
+            </div>
+        </footer>
+    </body>
 </html>

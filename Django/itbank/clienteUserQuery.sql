@@ -1,3 +1,7 @@
+/** Agregar tipos a los clientes **/
+ALTER TABLE cliente
+ADD customer_type INTEGER; 
+
 /** Joins individuales **/
 SELECT 	*
 FROM Login_clienteuser

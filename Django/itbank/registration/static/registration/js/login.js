@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', formEvents(FORMS));
 function formEvents(forms) {
     forms.forEach(form => {
         form.submit.addEventListener('click', (e) => {
-            formValidator(form);
+             /* 
+            Desabilitada temporalmente validación de js
+            formValidator(form); */
         });
 
         const hasDoc = Object.keys(form.fields).some(field => field === "doc");
