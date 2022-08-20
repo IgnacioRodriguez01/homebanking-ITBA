@@ -47,8 +47,8 @@ def Prestamos(request):
     # tiene el cliente, y darle a elegir entre ellas, si la información
     # fuera precisa.  
 
-    cuentaQuery = Cuenta.objects.all().filter(customer_id__exact=clienteId)[:1]
-    cuenta = cuentaQuery[0]
+    #cuentaQuery = Cuenta.objects.all().filter(customer_id__exact=clienteId)[:1]
+    cuenta = Cuenta.objects.all().filter(customer_id__exact=clienteId)[0]
     cuentaIban = cuenta.iban
     
     #Agregar validacion de fecha (REVISAR)
@@ -64,8 +64,9 @@ def Prestamos(request):
         monto = float(monto)
         montoConv = "{0:.2f}".format(monto).replace('.', '')
 
+        #Guardar el prestamo
         newPrestamo = Prestamo(loan_type=tipo.upper(), loan_date=fecha, loan_total=montoConv, customer_id=clienteId)
-        #newPrestamo.save()
+        newPrestamo.save()
         
         #Agregar el monto al saldo del cliente, con el formato requerido
         balance = str(cuenta.balance)
@@ -75,10 +76,9 @@ def Prestamos(request):
         
         balanceConv = "{0:.2f}".format(balanceFloat).replace('.', '')
         
-        #cuentaQuery.update(balance=balanceConv)
-        #Error: Cannot update a query once a slice has been taken. (REVISAR)
-        #Debug
-        print(cuentaQuery, cuentaIban, balanceConv)
+        #Update en la base de datos
+        cuenta.balance = balanceConv
+        cuenta.save()
 
         return redirect(reverse('prestamos')+"?success")
     context = {
