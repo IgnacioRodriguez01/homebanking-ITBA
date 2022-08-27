@@ -20,11 +20,11 @@
 ### Estructura de URLs:
 - **Datos de cliente:** */api/cliente (GET)*
 - **Saldo de cliente:** */api/cliente/saldo (GET)*
-- **Prestamos de sucursal:** *empleados/prestamos-sucursales (GET)*
-- **Tarjetas de cliente:** *empleados/tarjetas-cliente (GET)*
-- **Generar prestamo para un cliente:** *empleados/nuevo-prestamo (POST)*
-- **Anular prestamo de un cliente:** *empleados/anular-prestamo (DELETE)*
-- **Modificar direccion de cliente:** *cliente/1/editar-direccion (PUT)*
+- **Prestamos de sucursal:** */api/empleados/prestamos-sucursales (GET)*
+- **Tarjetas de cliente:** */api/empleados/tarjetas-cliente (GET)*
+- **Generar prestamo para un cliente:** */api/empleados/nuevo-prestamo (POST)*
+- **Anular prestamo de un cliente:** */api/empleados/anular-prestamo (DELETE)*
+- **Modificar direccion de cliente:** */api/cliente/1/editar-direccion (PUT)*
 - **Sucursales:** */api/sucursales (GET)*
 
 ### Notas:
