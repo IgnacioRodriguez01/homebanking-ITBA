@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'Cuentas.apps.CuentasConfig',
     'Prestamos.apps.PrestamosConfig',
     'Tarjetas.apps.TarjetasConfig',
-    'registration.apps.RegistrationConfig'
+    'registration.apps.RegistrationConfig',
+    'rest_framework'
 ]
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)

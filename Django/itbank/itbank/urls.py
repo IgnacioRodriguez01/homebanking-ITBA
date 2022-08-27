@@ -22,4 +22,5 @@ urlpatterns = [
     path('homebanking/', include('Prestamos.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
     path('accounts/',include('registration.urls')),
+    path('api/',include('Api.urls')),
 ]
