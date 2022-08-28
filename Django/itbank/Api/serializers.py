@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from Clientes.models import Cliente, Sucursal
+from Clientes.models import Cliente, Sucursal, Direcciones
 from Cuentas.models import Cuenta
 from Prestamos.models import Prestamo
 from Tarjetas.models import Tarjetas
@@ -49,4 +49,9 @@ class SucursalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sucursal
         fields = '__all__'
+
+class DireccionesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Direcciones
+        fields = ['calle', 'numero', 'ciudad', 'provincia', 'pais']
 
