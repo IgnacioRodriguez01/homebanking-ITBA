@@ -122,6 +122,18 @@ main {
     color: var(--bs-success);
 }
 
+.volver {
+    margin-bottom: 50px;
+}
+.volver a {
+    padding: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(201, 201, 201);
+    border-radius: 5px;
+    text-align: left;
+}
 
 footer {
 
