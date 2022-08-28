@@ -123,10 +123,10 @@ main {
 }
 
 .volver {
-    margin-bottom: 50px;
+    margin: 10px 0 25px 0;
 }
 .volver a {
-    padding: 30px;
+    padding: 10px;
     text-decoration: none;
     color: black;
     font-weight: bold;
@@ -134,7 +134,6 @@ main {
     border-radius: 5px;
     text-align: left;
 }
-
 footer {
 
     width: 100vw;

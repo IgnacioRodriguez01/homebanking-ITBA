@@ -22,6 +22,7 @@
                     <a class="navbar-brand" href="{% url 'homebanking' %}">
                     <img class="logo" src="{% static 'Homebanking/images/itbank.png' %}" alt="ITBANK">
                     </a>
+                    <span class="navbar-text">{{ user.username }}</span>
                 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -51,6 +52,9 @@
         <main>
             <h1 class="titulo">Pedí un prestamo en ITBANK</h1>
             <div class="prestamo-wrap">
+                <div class="volver">
+                    <a href="{% url 'homebanking' %}">Volver</a>
+                </div>
                 <form action="" method="post" class="prestamo-form">
                     {% csrf_token %}
                     {{ form }}
@@ -74,10 +78,6 @@
                         <span class="success">Su préstamo ha sido registrado en su cuenta</span>
                         <span class="success">{{ cuentaIban }}</span>
                     {% endif %}
-                    
-                    <div class="volver">
-                        <a href="homebanking.html">Volver</a>
-                        
                 </div>           
             </div>
         </main>
