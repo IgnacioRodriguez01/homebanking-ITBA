@@ -2,12 +2,6 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from Api import views
 
-router = DefaultRouter()
-# router.register(r'cliente', views.ClienteViewSet) #datos propios, saldo/tipo de cuenta x1, modificar direc
-# router.register(r'prestamos', views.PrestamosViewSet) #monto/tipo prest. propios, de sucursales, hacer prest., anular prest.
-# router.register(r'tarjetas', views.TarjetasViewSet) #tarjetas propias, 
-# router.register(r'sucursales', views.SucursalesViewSet) #listado sucursales
-
 # datos (permisos) url/
 
 # Cliente datos (cliente) cliente/
@@ -17,18 +11,17 @@ router = DefaultRouter()
 # Tarjetas cliente (empleado) empleados/tarjetas-cliente
 # Generar prestamo (empleado) empleados/nuevo-prestamo
 # Anular prestamo (empleado) empleados/anular-prestamo
-# Modif direcc (cliente-empleado) cliente/editar-direccion o empleado/editar-direccion/1
+# Modif direcc (cliente-empleado) cliente/editar-direccion o empleados/editar-direccion/1
 # Listado sucursales (publico) sucursales
 
 urlpatterns = [
-    #path('', include(router.urls)),
     path('cliente/', views.ClienteViews.as_view(), name='cliente'),
     path('cliente/saldo/', views.ClienteViews.as_view(), name='cliente-saldo'),
     path('cliente/prestamos/', views.ClienteViews.as_view(), name='cliente-prestamos'),
     path('cliente/editar-direccion/', views.ClienteViews.as_view(), name='cliente-editardirec'),
 
     path('empleados/nuevo-prestamo/', views.EmpleadoViews.as_view(), name='empleados-nuevoprestamo'),
-    path('empleados/anular-prestamo/', views.EmpleadoViews.as_view(), name='empleados-anularprestamo'),
+    path('empleados/anular-prestamo/<int:pk>/', views.EmpleadoViews.as_view(), name='empleados-anularprestamo'),
     path('empleados/tarjetas-cliente/<int:pk>/', views.EmpleadoViews.as_view(), name='empleados-tarjetas'),
     path('empleados/prestamos-sucursal/<int:pk>/', views.EmpleadoViews.as_view(), name='empleados-prestamossuc'),
     path('empleados/editar-direccion/<int:pk>/', views.EmpleadoViews.as_view(), name='empleados-editardirec'),

@@ -34,7 +34,8 @@ class PrestamoMeta:
     model = Prestamo
 class PrestamoSerializer(serializers.ModelSerializer):
     class Meta(PrestamoMeta):
-        fields = '__all__'
+        fields = ['loan_type', 'loan_date', 'loan_total', 'customer_id']
+
 class PrestamoInfoSerializer(serializers.ModelSerializer):
     loan_total = serializers.FloatField()
     class Meta(PrestamoMeta):
